@@ -2,4 +2,4 @@
 dist/
 **/**/*.log
 
-**/env/
+/env
