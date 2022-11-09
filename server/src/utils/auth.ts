@@ -9,7 +9,8 @@ export interface IjwtPayload {
 export function createAccessToken (username: string) {
 
     const accessToken = jwt.sign({ username: username }, process.env.JWT_SECRET || 'ssshhhhhhh', {
-        expiresIn: process.env.JWT_EXP || 900 // expires in 15 min
+        //expiresIn: process.env.JWT_EXP || 900 // expires in 15 min
+        expiresIn: 600 // expires in 10 minutos
     });
 
     return accessToken;
@@ -18,7 +19,7 @@ export function createAccessToken (username: string) {
 export function createRefreshToken (username: string) {
 
     const refreshToken = jwt.sign({ username: username }, process.env.JWT_SECRET || 'ssshhhhhhh', {
-        expiresIn: process.env.JWT_EXP || 604800 // expires in one week
+        expiresIn: process.env.JWT_EXP || 604800000 // expires in one week
     });
 
     return refreshToken;

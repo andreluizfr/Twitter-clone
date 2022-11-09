@@ -1,5 +1,4 @@
 import { IUsersRepository } from "../../repos/IUsersRepository";
-import { PrivateUser } from "../../repos/UsersRepository";
 import { createAccessToken, createRefreshToken } from '../../utils/auth';
 
 export interface ILoginRequest{
@@ -28,8 +27,7 @@ export class LoginService{
                 const updatedUser = await this.usersRepository.refreshToken(data.username, refreshToken);
 
                 if (updatedUser){
-                    const privateUser = new PrivateUser();
-                    Object.assign(privateUser, updatedUser);
+                    const {userId, refreshToken, created_at, ...privateUser} = updatedUser;
 
                     return {accessToken: accessToken, refreshToken: refreshToken, user: privateUser };
                 }

@@ -10,36 +10,30 @@ export interface IUserInfo {
     bio?: string;
 }
 export interface userState{
-    Logged: Boolean,
+    logged: Boolean,
     info: null | IUserInfo
 };
 
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        Logged: false,
+        logged: false,
         info: null
     } as userState,
     reducers: {
+        login(state){
+            state.logged = true;
+        },
         newUser(state, action) {
-            state.Logged = true;
             state.info = action.payload.info;
         },
         removeUser(state){
-            state.Logged = false;
+            state.logged = false;
             state.info = null;
-        },
-        fetchFromCache(state){
-            const accessToken = localStorage.getItem("x-access-token");
-            const info = localStorage.getItem("info");
-
-            if(info && accessToken){
-                state.Logged = true;
-                state.info = JSON.parse(info);
-            }
+            localStorage.clear();
         }
     }
 });
 
-export const { newUser, removeUser, fetchFromCache } = userSlice.actions;
+export const {login,  newUser, removeUser } = userSlice.actions;
 export default userSlice.reducer;

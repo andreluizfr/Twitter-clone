@@ -1,10 +1,9 @@
-import { useEffect } from 'react';
-
 import FirstPage from './pages/FirstPage';
 import HomePage from './pages/HomePage';
 
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { userState, fetchFromCache } from './redux/features/userSlice';
+import { userState, login } from './redux/features/userSlice';
 import { StoreState } from './redux/store';
 
 import {
@@ -16,16 +15,18 @@ import {
 function App() {
 
     const dispatch = useDispatch();
-    const user:userState = useSelector( (state: StoreState) => state.user );
-
-    //pegando conteudo do localStorage
-    useEffect(()=>{
-        dispatch(fetchFromCache());
-    }, [dispatch])
+    const user: userState = useSelector( (state: StoreState) => state.user );
 
     let router;
+
+    useEffect(()=>{
+        const accessToken = localStorage.getItem('x-access-token');
+
+        if(!user.logged && accessToken)
+            dispatch(login());
+    }, [dispatch]);
     
-    if(user.Logged)
+    if(user.logged)
         router = createBrowserRouter([
             {
                 path: "/",

@@ -2,7 +2,7 @@ import {FaTwitter,FaGoogle, FaApple} from 'react-icons/fa';
 
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { newUser } from '../../redux/features/userSlice';
+import { newUser, login } from '../../redux/features/userSlice';
 import axios from 'axios';
 
 
@@ -67,11 +67,10 @@ function Login ({step, setStep}: ILoginComponent ) {
 
                 if(data.user && data.accessToken){
 
+                    dispatch(login());
                     dispatch(newUser({
-                        info: data.user,
-                        accessToken: data.accessToken
+                        info: data.user
                     }));
-                    localStorage.setItem("info", JSON.stringify(data.user));
                     localStorage.setItem("x-access-token", data.accessToken);
 
                 } else {

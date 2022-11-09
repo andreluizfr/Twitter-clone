@@ -12,10 +12,14 @@ export class RefreshTokenService{
 
         let username;
 
+        console.log(refreshToken);
         try {
             const jwtPayload = jwt.verify(refreshToken, process.env.SECRET || 'ssshhhhhhh') as IjwtPayload;
             username = jwtPayload.username;
         } catch (error) {
+            if(error.name === 'TokenExpiredError') {
+                throw new Error("Expired Refresh Token, please log in.");
+            }
             throw new Error("Invalid Refresh Token, please log in.");
         }
 
