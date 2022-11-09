@@ -15,8 +15,8 @@ import {BsThreeDots
 
 import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeUser, userState } from '../redux/features/userSlice';
-import { StoreState } from '../redux/store';
+import { removeUser, userState } from '../../redux/features/userSlice';
+import { StoreState } from '../../redux/store';
 
 
 function Banner() {

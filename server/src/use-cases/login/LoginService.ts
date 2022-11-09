@@ -1,4 +1,6 @@
 import { IUsersRepository } from "../../repos/IUsersRepository";
+import { PrivateUser } from "../../repos/UsersRepository";
+import { createAccessToken, createRefreshToken } from '../../utils/auth';
 
 export interface ILoginRequest{
     username: string;
@@ -14,10 +16,26 @@ export class LoginService{
         const user = await this.usersRepository.findByUsername(data.username);
 
         if(user){
+
             if(user.password!==data.password)
                 throw new Error("Username or password is incorrect!");
-            else
-                return user;
+
+            else{
+
+                const accessToken = createAccessToken(data.username);
+                const refreshToken = createRefreshToken(data.username);
+
+                const updatedUser = await this.usersRepository.refreshToken(data.username, refreshToken);
+
+                if (updatedUser){
+                    const privateUser = new PrivateUser();
+                    Object.assign(privateUser, updatedUser);
+
+                    return {accessToken: accessToken, refreshToken: refreshToken, user: privateUser };
+                }
+                    
+            }
+                
         }
         else throw new Error("Username or password is incorrect!");
 

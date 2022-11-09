@@ -2,6 +2,7 @@ import 'dotenv/config';
 import path from 'path';
 import express, { Request, Response, NextFunction } from 'express';
 import {userRouter} from './routes/userRoutes';
+import cookieParser from 'cookie-parser';
 const cors = require('cors');
 
 // **** Init express **** //
@@ -12,6 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
+app.use(cookieParser());
 
 
 // **** Add API routes **** //

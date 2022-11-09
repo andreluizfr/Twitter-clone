@@ -1,25 +1,31 @@
 import { Request, Response } from 'express';
-import { CreateUserService } from '../use-cases/createUser/CreateUserService';
+import { SignupService } from '../use-cases/signup/SignupService';
 import { UsersRepository } from "../repos/UsersRepository";
 
 
 const usersRepository = new UsersRepository();
-const createUserService = new CreateUserService(usersRepository);
+const signupService = new SignupService(usersRepository);
 
 //receive a request, calls the use-case, then send back a response
-export default new class CreateUserController{
+export default new class SignupController{
 
     async handle(request: Request, response: Response): Promise<Response>{
 
-        const {firstName, lastName, username, email, password} = request.body;
+        const {name, username, email, birthDate, password} = request.body;
 
         try{
-            await createUserService.execute({firstName, lastName, username, email, password});
-            return response.status(201).send({message: "User created."});
+
+            await signupService.execute({name, username, email, birthDate, password});
+            return response.status(201).send({
+                message: "User created."
+            });
+
         } catch (err) {
+
             return response.status(202).json({
                 message: err.message || 'Unexpected error.'
-            })
+            });
+
         } 
 
     } 

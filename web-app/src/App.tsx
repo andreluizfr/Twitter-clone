@@ -25,7 +25,7 @@ function App() {
 
     let router;
     
-    if(user.isLoggedIn)
+    if(user.Logged)
         router = createBrowserRouter([
             {
                 path: "/",

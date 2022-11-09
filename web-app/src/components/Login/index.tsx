@@ -2,7 +2,7 @@ import {FaTwitter,FaGoogle, FaApple} from 'react-icons/fa';
 
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { newUser } from '../redux/features/userSlice';
+import { newUser } from '../../redux/features/userSlice';
 import axios from 'axios';
 
 
@@ -10,6 +10,7 @@ interface ILoginResponse {
     message: string
     user: object | null
     accessToken: string | null
+    refreshToken: string | null
 }
 
 interface ILoginComponent {
@@ -158,13 +159,13 @@ function Login ({step, setStep}: ILoginComponent ) {
                         <span>Senha</span>
                     </div>
                     <span className='Forget-password'>Esqueceu sua senha?</span>
-                    <button onClick={handleLogin} className='btn-primary Btn-entrar' disabled>Entrar</button>
+                    <button onClick={handleLogin} className='btn-primary Btn-entrar btn-themed-black-white' disabled>Entrar</button>
 
                 </div>
 
                 <span className='Span-subscribe'>Não tem uma conta? <a href="/">Inscreva-se</a></span>
 
-                <span className='Login2-server-response'>{serverResponse}</span>
+                <span className='Login2-server-response Hidden'>{serverResponse}</span>
                 
             </div>
 

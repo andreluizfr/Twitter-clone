@@ -152,9 +152,13 @@
     background: rgba(0,0,0,0.5)
     cursor: initial
 
+.Btn-inscrever-se
+    width: 100%
+    font-size: $font-size-normal
+    border-radius: 1.5rem
+    padding: 0.8rem 1rem
+    margin-bottom: 1rem
 
-
-    
 .Input-primary
     border: 1px solid rgba(0,0,0,0.24)
     border-radius: 0.2rem
@@ -493,32 +497,8 @@
         color: $secondary-font-color
 
 
+
 .Signup
-    @include flex-column-start-center
-    position: absolute
-    top: 0
-    bottom: 0
-    left: 0
-    right: 0
-    margin: auto
-    width: 600px
-    height: 650px
-    background-color: $primary-bg-color
-    border-radius: 1rem
-
-    &-twitter-icon
-        margin-top: 1rem
-
-    &-container
-        @include flex-column-start-center
-        margin: 1rem 0
-        width: 300px
-
-        .Span-lines-around
-            width: 300px
-
-
-.Signup2
     @include flex-column-space-between-center
     position: absolute
     top: 0
@@ -534,13 +514,20 @@
     &-container
         @include flex-column-start-start
         margin: 1rem 0
-        width: 400px
+        width: 420px
 
         &-step
             margin: 0 0 1.5rem 0
 
         &-title
-            margin: 0 0 1.5rem 0
+            margin: 0 0 0.5rem 0
+
+        &-description
+            color: $quaternary-font-color
+            margin: 0
+
+        .Input-animated
+            margin-top: 1.5rem
 
         .Telephone-or-email
             width: 100%
@@ -548,6 +535,18 @@
             span
                 float: right
                 color: $tertiary-font-color
+
+            span:hover
+                text-decoration: underline
+                cursor: pointer
+
+        .Didnt-receive-email
+            width: 100%
+
+            span
+                float: left
+                color: $quaternary-font-color
+                margin: 0
 
             span:hover
                 text-decoration: underline
@@ -582,10 +581,10 @@
                     left: 0.5rem
 
                 span:nth-child(2)
-                    left: 12.8rem
+                    left: 13.5rem
 
                 span:nth-child(3)
-                    left: 18.2rem
+                    left: 19.2rem
 
                 select:nth-child(4)
                     flex: 5
@@ -618,10 +617,63 @@
                     border: 1px solid rgba(0,0,0,0.24)
                     outline: none
 
+        .Filled-field
+            @include flex-column-center-start
+            position: relative
+            margin-top: .5rem
+            width: 100%
+
+            input
+                font-size: $font-size-small
+                padding: 1.5rem .5rem .5rem .5rem
+
+            span
+                font-size: $font-size-smaller
+                color: $quaternary-font-color
+                position: absolute
+                left: .5rem
+                top: 0.2rem
+                pointer-events: none
+                transition: .2s
+            
+            &-check
+                color: $green-color
+                position: absolute
+                right: 0.5rem
+                bottom: 0.5rem
+
     .Btn-avancar
-        width: 400px
+        width: 420px
         padding: .8rem 1rem
         margin-bottom: 2rem
+
+    &-last-section
+        @include flex-column-start-start
+        width: 420px
+
+        &-message
+            color: $quaternary-font-color
+            margin: 0 0 0.5rem 0
+            line-height: 1rem
+            letter-spacing: -0.5px
+
+            a
+                color: $tertiary-font-color
+                text-decoration: none
+
+            a:visited
+                color: $tertiary-font-color
+
+            a:hover 
+                text-decoration: underline
+
+    &-server-response
+        position: absolute
+        top: calc(650px + 1rem)
+        padding: 1rem
+        background-color: $primary-btn-color
+        color: $secondary-font-color
+
 
 
 .Tweet

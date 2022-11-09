@@ -1,7 +1,7 @@
 import { useMediaQuery } from 'react-responsive';
-import Banner from '../components/Banner';
-import PrimaryColumn from '../components/PrimaryColumn';
-import SidebarColumn from '../components/SidebarColumn';
+import Banner from './Banner';
+import PrimaryColumn from './PrimaryColumn';
+import SidebarColumn from './SidebarColumn';
 
 function HomePage () {
 

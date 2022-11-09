@@ -198,6 +198,14 @@ h2 {
   cursor: initial;
 }
 
+.Btn-inscrever-se {
+  width: 100%;
+  font-size: 1.2rem;
+  border-radius: 1.5rem;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+}
+
 .Input-primary {
   border: 1px solid rgba(0, 0, 0, 0.24);
   border-radius: 0.2rem;
@@ -578,37 +586,6 @@ h2 {
 .Signup {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 600px;
-  height: 650px;
-  background-color: #FFFFFF;
-  border-radius: 1rem;
-}
-.Signup-twitter-icon {
-  margin-top: 1rem;
-}
-.Signup-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 1rem 0;
-  width: 300px;
-}
-.Signup-container .Span-lines-around {
-  width: 300px;
-}
-
-.Signup2 {
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   position: absolute;
@@ -622,82 +599,101 @@ h2 {
   background-color: #FFFFFF;
   border-radius: 1rem;
 }
-.Signup2-container {
+.Signup-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   margin: 1rem 0;
-  width: 400px;
+  width: 420px;
 }
-.Signup2-container-step {
+.Signup-container-step {
   margin: 0 0 1.5rem 0;
 }
-.Signup2-container-title {
-  margin: 0 0 1.5rem 0;
+.Signup-container-title {
+  margin: 0 0 0.5rem 0;
 }
-.Signup2-container .Telephone-or-email {
+.Signup-container-description {
+  color: rgb(83, 100, 113);
+  margin: 0;
+}
+.Signup-container .Input-animated {
+  margin-top: 1.5rem;
+}
+.Signup-container .Telephone-or-email {
   width: 100%;
 }
-.Signup2-container .Telephone-or-email span {
+.Signup-container .Telephone-or-email span {
   float: right;
   color: rgb(29, 155, 240);
 }
-.Signup2-container .Telephone-or-email span:hover {
+.Signup-container .Telephone-or-email span:hover {
   text-decoration: underline;
   cursor: pointer;
 }
-.Signup2-container .Birth-date-wrapper {
+.Signup-container .Didnt-receive-email {
+  width: 100%;
+}
+.Signup-container .Didnt-receive-email span {
+  float: left;
+  color: rgb(83, 100, 113);
+  margin: 0;
+}
+.Signup-container .Didnt-receive-email span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.Signup-container .Birth-date-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   margin: 1rem 0 2rem 0;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-title {
+.Signup-container .Birth-date-wrapper .Birth-date-title {
   margin: 0 0 0.5rem 0;
   color: #000000;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-message {
+.Signup-container .Birth-date-wrapper .Birth-date-message {
   color: rgb(83, 100, 113);
   margin: 0 0 0.5rem 0;
   line-height: 1rem;
   letter-spacing: -0.5px;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values {
+.Signup-container .Birth-date-wrapper .Birth-date-values {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   width: 100%;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values span {
+.Signup-container .Birth-date-wrapper .Birth-date-values span {
   position: absolute;
   top: 0.1rem;
   font-size: 0.7rem;
   color: rgb(83, 100, 113);
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values span:nth-child(1) {
+.Signup-container .Birth-date-wrapper .Birth-date-values span:nth-child(1) {
   left: 0.5rem;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values span:nth-child(2) {
-  left: 12.8rem;
+.Signup-container .Birth-date-wrapper .Birth-date-values span:nth-child(2) {
+  left: 13.5rem;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values span:nth-child(3) {
-  left: 18.2rem;
+.Signup-container .Birth-date-wrapper .Birth-date-values span:nth-child(3) {
+  left: 19.2rem;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values select:nth-child(4) {
+.Signup-container .Birth-date-wrapper .Birth-date-values select:nth-child(4) {
   flex: 5;
   margin-right: 0.5rem;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values select:nth-child(5) {
+.Signup-container .Birth-date-wrapper .Birth-date-values select:nth-child(5) {
   flex: 2;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values select:nth-child(6) {
+.Signup-container .Birth-date-wrapper .Birth-date-values select:nth-child(6) {
   flex: 3;
   margin-left: 0.5rem;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values select {
+.Signup-container .Birth-date-wrapper .Birth-date-values select {
   height: 3.5rem;
   border: 1px solid rgba(0, 0, 0, 0.24);
   border-radius: 0.2rem;
@@ -706,21 +702,79 @@ h2 {
   cursor: pointer;
   padding-left: 0.1rem;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values select::-ms-expand {
+.Signup-container .Birth-date-wrapper .Birth-date-values select::-ms-expand {
   display: none;
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values select option {
+.Signup-container .Birth-date-wrapper .Birth-date-values select option {
   font-size: 1.2rem;
   color: rgb(83, 100, 113);
 }
-.Signup2-container .Birth-date-wrapper .Birth-date-values select:focus {
+.Signup-container .Birth-date-wrapper .Birth-date-values select:focus {
   border: 1px solid rgba(0, 0, 0, 0.24);
   outline: none;
 }
-.Signup2 .Btn-avancar {
-  width: 400px;
+.Signup-container .Filled-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+.Signup-container .Filled-field input {
+  font-size: 1rem;
+  padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+}
+.Signup-container .Filled-field span {
+  font-size: 0.9rem;
+  color: rgb(83, 100, 113);
+  position: absolute;
+  left: 0.5rem;
+  top: 0.2rem;
+  pointer-events: none;
+  transition: 0.2s;
+}
+.Signup-container .Filled-field-check {
+  color: rgb(0, 186, 124);
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+}
+.Signup .Btn-avancar {
+  width: 420px;
   padding: 0.8rem 1rem;
   margin-bottom: 2rem;
+}
+.Signup-last-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 420px;
+}
+.Signup-last-section-message {
+  color: rgb(83, 100, 113);
+  margin: 0 0 0.5rem 0;
+  line-height: 1rem;
+  letter-spacing: -0.5px;
+}
+.Signup-last-section-message a {
+  color: rgb(29, 155, 240);
+  text-decoration: none;
+}
+.Signup-last-section-message a:visited {
+  color: rgb(29, 155, 240);
+}
+.Signup-last-section-message a:hover {
+  text-decoration: underline;
+}
+.Signup-server-response {
+  position: absolute;
+  top: calc(650px + 1rem);
+  padding: 1rem;
+  background-color: rgb(29, 155, 240);
+  color: #FFFFFF;
 }
 
 .Tweet {

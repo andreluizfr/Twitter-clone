@@ -1,30 +1,29 @@
 import { Request, Response } from 'express';
-import { LoginService } from '../use-cases/login/LoginService';
-import { UsersRepository, PrivateUser } from "../repos/UsersRepository";
+import { RefreshTokenService } from '../use-cases/refreshToken/RefreshTokenService';
+import { UsersRepository } from "../repos/UsersRepository";
 
 const usersRepository = new UsersRepository();
-const loginService = new LoginService(usersRepository);
+const refreshTokenService = new RefreshTokenService(usersRepository);
 
 //receive a request, calls the use-case, then send back a response
-export default new class LoginController{
+export default new class RefreshTokenController{
 
     async handle(req: Request, res: Response): Promise<Response>{
         
-        const { username, password } = req.body;
+        const refreshToken = req.cookies.refreshToken;
 
         try{
 
-            const { accessToken, refreshToken, user }  = await loginService.execute({username, password}) as {accessToken: string, refreshToken: string, user: PrivateUser};
+            const {newAccessToken, newRefreshToken}  = await refreshTokenService.execute(refreshToken);
             
-            res.cookie("refreshToken", refreshToken, {
+            res.cookie("refreshToken", newRefreshToken, {
                 httpOnly: true,
                 expires: new Date(Date.now() + 604800000)
             });
 
             return res.status(201).send({
-                message: "Login succesfull.",
-                accessToken: accessToken,
-                user: user
+                message: "Access token refreshed.",
+                accessToken: newAccessToken
             });
 
         } catch (err) {

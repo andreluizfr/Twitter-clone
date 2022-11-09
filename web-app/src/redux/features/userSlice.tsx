@@ -1,32 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface IUserInfo {
-    firstName: string;
-    lastName: string;
+    name: string;
     username: string;
     email: string;
+    birthDate: string;
     password: string;
     photoURL?: string;
     bio?: string;
 }
 export interface userState{
-    isLoggedIn: Boolean,
+    Logged: Boolean,
     info: null | IUserInfo
 };
 
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        isLoggedIn: false,
+        Logged: false,
         info: null
     } as userState,
     reducers: {
         newUser(state, action) {
-            state.isLoggedIn = true;
+            state.Logged = true;
             state.info = action.payload.info;
         },
         removeUser(state){
-            state.isLoggedIn = false;
+            state.Logged = false;
             state.info = null;
         },
         fetchFromCache(state){
@@ -34,7 +34,7 @@ const userSlice = createSlice({
             const info = localStorage.getItem("info");
 
             if(info && accessToken){
-                state.isLoggedIn = true;
+                state.Logged = true;
                 state.info = JSON.parse(info);
             }
         }

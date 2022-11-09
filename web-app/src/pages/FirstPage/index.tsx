@@ -1,7 +1,7 @@
 import {FaTwitter,FaGoogle, FaApple} from 'react-icons/fa';
 import { useState } from 'react';
-import Login from '../components/Login';
-import SignUp from '../components/SignUp';
+import Login from '../../components/Login';
+import SignUp from '../../components/SignUp';
 
 
 function FirstPage () {

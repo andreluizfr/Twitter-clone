@@ -1,4 +1,4 @@
-import WhatsHappeningImg from '../img/WhatsHappening.png';
+import WhatsHappeningImg from '../../img/WhatsHappening.png';
 import { useMediaQuery } from 'react-responsive';
 import { FaSearch } from 'react-icons/fa';
 

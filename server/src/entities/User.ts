@@ -8,16 +8,16 @@ export class User{
     public readonly userId!: string;
     
     @Column()
-    public firstName!: string;
+    public name!: string;
 
-    @Column()
-    public lastName!: string;
-
-    @Column()
+    @Column({ unique: true })
     public username!: string;
 
-    @Column()
+    @Column({ unique: true })
     public email!: string;
+
+    @Column()
+    public birthDate!: string;
 
     @Column()
     public password!: string;
@@ -28,15 +28,17 @@ export class User{
     @Column(({ nullable: true }))
     public bio!: string;
 
+    @Column(({ type: String, nullable: true }))
+    public refreshToken!: string | null;
+
     @CreateDateColumn()
     public created_at!: Date;
 
-    //2 parametros, props que é do tipo User mas omitindo id, photoURL e bio, e o parametro id que é opcional e do tipo string
-    constructor(props: Pick <User, 'firstName'| 'lastName' | 'username' | 'email' | 'password'>, userId?: string){
 
-        Object.assign(this, props)
+    constructor(props: Pick <User, 'name' | 'username' | 'email' | 'birthDate' | 'password'>, userId?: string){
 
-        //objeto sendo criado
+        Object.assign(this, props);
+
         if(!userId){
             this.userId = uuidv4();
         }
