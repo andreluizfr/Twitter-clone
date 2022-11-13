@@ -38,9 +38,6 @@
   padding: 0.2rem;
   cursor: pointer;
 }
-.Make-tweet-container-field .Who-can-view-container-span {
-  color: rgb(29, 155, 240);
-}
 .Make-tweet-container-field .Who-can-view-container-icon {
   color: rgb(29, 155, 240);
   margin-right: 0.5rem;
@@ -64,21 +61,21 @@
 .Make-tweet-container-field .Who-can-comment-container-icon {
   color: rgb(29, 155, 240);
 }
-.Make-tweet-container-field .Who-can-comment-container-span {
-  color: rgb(29, 155, 240);
+.Make-tweet-container-field .Who-can-comment-container-message {
+  margin-left: 0.2rem;
 }
 .Make-tweet-container-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding-top: 1rem;
   margin-bottom: 1rem;
 }
 .Make-tweet-container-toolbar-icons {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1rem;
 }
 .Make-tweet-container-toolbar-icons-icon {
   padding: 0.4rem 0.5rem;
@@ -88,5 +85,4 @@
 .Make-tweet-container-toolbar .Btn-tweetar {
   padding: 0.5rem 1rem;
   border-radius: 1rem;
-  font-size: 1rem;
 }/*# sourceMappingURL=styles.css.map */

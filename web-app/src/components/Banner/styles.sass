@@ -4,15 +4,13 @@
     
 .Banner
     display: flex
-    background-color: $primary-bg-color
+    background-color: $white
 
     &-menu
         display: flex
 
         .Banner-menu-icon
-            color: $primary-font-color
             margin: 1rem
-        
 
         .Icon-container
             @include flex-row-space-between-center
@@ -21,17 +19,17 @@
 
             .Banner-menu-icon
                 margin: 1rem
-                color: $primary-font-color
 
             &-label
                 margin: 1rem 1rem 1rem 0
                 font-size: $font-size-medium
-                color: $primary-font-color
+                color: $black
+                cursor: pointer
         
         .Btn-banner-tweetar
             font-size: 1.2rem
             height: 3rem
-            width: 12rem
+            width: 100%
             border-radius: 1.5rem
 
     .User-avatar-container
@@ -47,14 +45,14 @@
             cursor: pointer
 
         &-info
-            @include flex-row-start-center
+            @include flex-column-start-start
             flex-wrap: wrap
-            width: 7rem
 
             &-name
-                margin-right: 0.5rem
-            &-userName
-                margin-left: 0.5rem
+                margin-left: 1rem
+
+            &-username
+                margin-left: 1rem
 
         &-dots
             padding-left: 3rem
@@ -78,12 +76,15 @@
             width: 19rem
             height: 9rem
             padding: 1rem 0
-            border: 1px solid rgba(0,0,0,0.12)
+            border: 1px solid rgba($black,0.12)
             border-radius: 1.5rem
-            background-color: $primary-bg-color 
+            background-color: $white
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px
             
-            span
+            .option
                 width: 100%
+                justify-content: start
+                font-size: $font-size-small
                 padding: 1rem .5rem
                 cursor: pointer
+    

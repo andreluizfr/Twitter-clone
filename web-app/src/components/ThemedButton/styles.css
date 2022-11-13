@@ -49,4 +49,48 @@
 
 .Btn-themed-black-white:hover {
   background-color: rgba(0, 0, 0, 0.85);
+}
+
+.Btn-themed-transparent-black {
+  background-color: transparent;
+  transition: 0.2s;
+  color: rgb(83, 100, 113);
+}
+
+.Btn-themed-transparent-black:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+  color: rgb(0, 0, 0);
+}
+
+.Btn-themed-transparent-blue {
+  background-color: transparent;
+  transition: 0.2s;
+  color: rgb(83, 100, 113);
+}
+
+.Btn-themed-transparent-blue:hover {
+  background-color: rgba(29, 155, 240, 0.15);
+  color: rgb(29, 155, 240);
+}
+
+.Btn-themed-transparent-pink {
+  background-color: transparent;
+  transition: 0.2s;
+  color: rgb(83, 100, 113);
+}
+
+.Btn-themed-transparent-pink:hover {
+  background-color: rgba(249, 24, 128, 0.15);
+  color: rgb(249, 24, 128);
+}
+
+.Btn-themed-transparent-green {
+  background-color: transparent;
+  transition: 0.2s;
+  color: rgb(83, 100, 113);
+}
+
+.Btn-themed-transparent-green:hover {
+  background-color: rgba(0, 186, 124, 0.15);
+  color: rgb(0, 186, 124);
 }/*# sourceMappingURL=styles.css.map */

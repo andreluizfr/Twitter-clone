@@ -45,3 +45,47 @@
 .Btn-themed-black-white:hover{
     background-color: $opaque-black;
 }
+
+
+.Btn-themed-transparent-black{
+    background-color: transparent;
+    transition: .2s;
+    color: $gray;
+}
+.Btn-themed-transparent-black:hover{
+    background-color: rgba($black, 0.15);
+    color: $black
+}
+
+
+.Btn-themed-transparent-blue{
+    background-color: transparent;
+    transition: .2s;
+    color: $gray;
+}
+.Btn-themed-transparent-blue:hover{
+    background-color: rgba($blue, 0.15);
+    color: $blue
+}
+
+
+.Btn-themed-transparent-pink{
+    background-color: transparent;
+    transition: .2s;
+    color: $gray;
+}
+.Btn-themed-transparent-pink:hover{
+    background-color: rgba($pink, 0.15);
+    color: $pink
+}
+
+
+.Btn-themed-transparent-green{
+    background-color: transparent;
+    transition: .2s;
+    color: $gray;
+}
+.Btn-themed-transparent-green:hover{
+    background-color: rgba($green, 0.15);
+    color: $green
+}

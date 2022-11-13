@@ -1,18 +1,4 @@
-import {FaRegImage,
-        FaRegFileImage,
-        FaListUl,
-        FaRegSmile,
-        FaRegCalendarAlt,
-        FaMapMarkerAlt,
-        FaGlobeAmericas,
-        FaChevronDown,
-        FaRegComment,
-        FaHeart,
-        FaShareSquare,
-        FaCircle
-} from 'react-icons/fa';
-import { BsStars, BsThreeDots } from 'react-icons/bs';
-import { AiOutlineRetweet } from "react-icons/ai";
+import { BsStars } from 'react-icons/bs';
 import MakeTweet from '../../../components/MakeTweet';
 import Tweet from '../../../components/Tweet';
 

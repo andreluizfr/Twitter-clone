@@ -4,14 +4,15 @@ import { HTMLAttributes } from "react";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     primaryColor: string
-    hoverColor: string
+    secondaryColor: string
 }
 
 const ThemedDiv = (props:Props) : JSX.Element => {
 
     return (
-        <div className={props.className+"Container-themed-"}
-             onClick={props.onClick}
+        <div
+            className={"Container-themed-"+props.primaryColor+"-"+props.secondaryColor+" "+props.className}
+            onClick={props.onClick}
         > 
             {props.children}
         </div>

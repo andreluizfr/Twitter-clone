@@ -1,13 +1,15 @@
-import { useEffect, useCallback, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import Banner from '../../components/Banner';
 import MainColumn from './MainColumn';
 import SidebarColumn from '../../components/SidebarColumn';
+
+import { useEffect, useCallback, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { useSelector, useDispatch } from 'react-redux';
 import { userState, newUser, removeUser } from '../../redux/features/userSlice';
 import { StoreState } from '../../redux/store';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
 
 interface PublicUser {
     name: string

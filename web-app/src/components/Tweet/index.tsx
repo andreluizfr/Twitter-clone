@@ -6,12 +6,16 @@ import {FaRegComment,
 } from 'react-icons/fa';
 import { BsThreeDots } from 'react-icons/bs';
 import { AiOutlineRetweet } from "react-icons/ai";
+import ThemedContainer from '../ThemedContainer';
+import Text from '../Text';
+import ThemedButton from '../ThemedButton';
 
 
 function Tweet () {
 
     return (
-        <article className='Tweet btn-themed-transparent-black'>
+
+        <ThemedContainer className='Tweet' primaryColor='transparent' secondaryColor='black'>
 
             <div className='Tweet-retweet-or-maybe-you-like'>
                 {/*<img className="Tweet-retweet-or-maybe-you-like-icon" alt="retweeted icon"/>*/}
@@ -24,14 +28,41 @@ function Tweet () {
 
                     <div className="Tweet-container-first-section">
                         <div className="Tweet-container-first-section-infos">
-                            <span className="Tweet-nickname Span-bold-small">André Luiz</span>
-                            <span className='Tweet-username'>@andrezzz</span>
+                            <Text 
+                                className='Tweet-nickname'
+                                fontWeigth='bold'
+                                fontSize='small'
+                                fontColor='black'
+                            >
+                                {'André Luiz'}
+                            </Text>
+                            <Text 
+                                className='Tweet-username'
+                                fontWeigth='normal'
+                                fontSize='small'
+                                fontColor='gray'
+                            >
+                                {'@andrezzz'}
+                            </Text>
                             <FaCircle className='Tweet-dot'/>
-                            <span className='Tweet-date'>21 de Out</span>
+                            <Text 
+                                className='Tweet-date'
+                                fontWeigth='normal'
+                                fontSize='small'
+                                fontColor='gray'
+                            >
+                                {'21 de Out'}
+                            </Text>
                         </div>
-                        <div className="Tweet-container-first-section-more btn-themed-transparent-blue">
+
+                        <ThemedButton 
+                            className='Tweet-container-first-section-more'
+                            primaryColor='transparent'
+                            secondaryColor='blue'
+                        >
                             <BsThreeDots className='Icon-small'/>
-                        </div>
+                        </ThemedButton>
+
                     </div>
 
                     <p className='Tweet-text'>
@@ -41,35 +72,56 @@ function Tweet () {
                     <img className="Tweet-media" alt="tweet media" src="https://www.enago.com/academy/br/wp-content/uploads/sites/17/2015/06/Twitter-750x330.jpeg"/>
 
                     <div className="Tweet-container-toolbar">
+
                         <div className='Tweet-container-toolbar-item'>
-                            <div className='Tweet-container-toolbar-item-icon btn-themed-transparent-blue'>
+                            <ThemedButton 
+                                className='Tweet-container-toolbar-item-icon'
+                                primaryColor='transparent'
+                                secondaryColor='blue'
+                            >
                                 <FaRegComment className="Icon-small"/>
-                                </div>
-                            <span className='Tweet-container-toolbar-item-comments'>345</span>
+                            </ThemedButton> 
+                            <span className='Tweet-container-toolbar-item-comments'>{'345'}</span>                
                         </div>
+
                         <div className='Tweet-container-toolbar-item'>
-                            <div className='Tweet-container-toolbar-item-icon btn-themed-transparent-green'>
+                            <ThemedButton 
+                                className='Tweet-container-toolbar-item-icon'
+                                primaryColor='transparent'
+                                secondaryColor='green'
+                            >
                                 <AiOutlineRetweet className="Icon-small"/>
-                            </div>
-                            <span className='Tweet-container-toolbar-item-retweets'>6.908</span>
+                            </ThemedButton> 
+                            <span className='Tweet-container-toolbar-item-retweets'>{'6.908'}</span>                
                         </div>
+
                         <div className='Tweet-container-toolbar-item'>
-                            <div className='Tweet-container-toolbar-item-icon btn-themed-transparent-pink'>
+                            <ThemedButton 
+                                className='Tweet-container-toolbar-item-icon'
+                                primaryColor='transparent'
+                                secondaryColor='pink'
+                            >
                                 <FaHeart className="Icon-small"/>
-                            </div>
-                            <span className='Tweet-container-toolbar-item-likes'>54,4 mil</span>
+                            </ThemedButton> 
+                            <span className='Tweet-container-toolbar-item-likes'>{'54,4 mil'}</span>                
                         </div>
+
                         <div className='Tweet-container-toolbar-item'>
-                            <div className='Tweet-container-toolbar-item-icon btn-themed-transparent-blue'>
-                                <FaShareSquare className="Icon-small"/>
-                            </div>
+                            <ThemedButton 
+                                className='Tweet-container-toolbar-item-icon'
+                                primaryColor='transparent'
+                                secondaryColor='blue'
+                            >
+                                 <FaShareSquare className="Icon-small"/>
+                            </ThemedButton>              
                         </div>
+                            
                     </div>
 
                 </div>
             </div>
 
-        </article>
+        </ThemedContainer>
     );
 
 }

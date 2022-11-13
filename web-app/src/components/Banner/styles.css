@@ -1,12 +1,11 @@
 .Banner {
   display: flex;
-  background-color: #FFFFFF;
+  background-color: rgb(255, 255, 255);
 }
 .Banner-menu {
   display: flex;
 }
 .Banner-menu .Banner-menu-icon {
-  color: #000000;
   margin: 1rem;
 }
 .Banner-menu .Icon-container {
@@ -18,17 +17,17 @@
 }
 .Banner-menu .Icon-container .Banner-menu-icon {
   margin: 1rem;
-  color: #000000;
 }
 .Banner-menu .Icon-container-label {
   margin: 1rem 1rem 1rem 0;
   font-size: 1.4rem;
-  color: #000000;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
 }
 .Banner-menu .Btn-banner-tweetar {
   font-size: 1.2rem;
   height: 3rem;
-  width: 12rem;
+  width: 100%;
   border-radius: 1.5rem;
 }
 .Banner .User-avatar-container {
@@ -47,16 +46,16 @@
 }
 .Banner .User-avatar-container-info {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  width: 7rem;
 }
 .Banner .User-avatar-container-info-name {
-  margin-right: 0.5rem;
+  margin-left: 1rem;
 }
-.Banner .User-avatar-container-info-userName {
-  margin-left: 0.5rem;
+.Banner .User-avatar-container-info-username {
+  margin-left: 1rem;
 }
 .Banner .User-avatar-container-dots {
   padding-left: 3rem;
@@ -82,11 +81,13 @@
   padding: 1rem 0;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 1.5rem;
-  background-color: #FFFFFF;
+  background-color: rgb(255, 255, 255);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.Banner .User-avatar-container .User-avatar-hidden-options-screen-container span {
+.Banner .User-avatar-container .User-avatar-hidden-options-screen-container .option {
   width: 100%;
+  justify-content: start;
+  font-size: 1rem;
   padding: 1rem 0.5rem;
   cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */

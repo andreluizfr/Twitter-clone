@@ -1,5 +1,3 @@
-import './css/styles.css';
-
 import FirstPage from './pages/FirstPage';
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
@@ -20,14 +18,15 @@ function App() {
     const dispatch = useDispatch();
     const user: userState = useSelector( (state: StoreState) => state.user );
 
-    let router;
-
     useEffect(()=>{
-        const accessToken = localStorage.getItem('x-access-token');
 
+        const accessToken = localStorage.getItem('x-access-token');
         if(!user.logged && accessToken)
             dispatch(login());
-    }, [dispatch]);
+
+    }, [dispatch, user.logged]);
+
+    let router;
     
     if(user.logged)
         router = createBrowserRouter([

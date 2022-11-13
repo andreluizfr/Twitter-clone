@@ -8,11 +8,13 @@ import {FaTwitter,
         FaBook,
         FaUserAlt,
         FaRegCommentDots,
-        FaSearch,
-        FaLock
+        FaSearch
         } from 'react-icons/fa';
 import {BsThreeDots
        } from 'react-icons/bs';
+import ThemedButton from '../ThemedButton';
+import ThemedContainer from '../ThemedContainer';
+import Text from '../Text';
 
 import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
@@ -84,43 +86,50 @@ function Banner() {
             
                 <div className='Banner-menu Banner-menu-flex-column'>
 
-                    <div className='Icon-container btn-themed-white-blue'>
-                        <FaTwitter className='Banner-menu-icon Icon-large' id="icon-twitter" fill='rgb(29, 155, 240)'/>
-                    </div>
-                    <div className='Icon-container btn-themed-white-black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='blue'>
+                        <FaTwitter className='Banner-menu-icon Icon-large' id="icon-twitter"/>
+                    </ThemedButton>
+
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaHouseUser className='Banner-menu-icon Icon-large' id="icon-home"/>
-                    </div>
+                    </ThemedButton>
+
                     {isMediumScreen?
-                        <div className='Icon-container btn-themed-white-black'>
+                        <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                             <FaSearch className='Banner-menu-icon Icon-large' id="icon-search"/>
-                        </div>
+                        </ThemedButton>
                         :
-                        <div className='Icon-container btn-themed-white-black'>
+                        <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                             <FaSlackHash className='Banner-menu-icon Icon-large' id="icon-explorar"/>
-                        </div>
+                        </ThemedButton>
                     }
-                    <div className='Icon-container btn-themed-white-black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaRegBell className='Banner-menu-icon Icon-large' id="icon-notificacoes"/>
-                    </div>
-                    <div className='Icon-container btn-themed-white-black'>
+                    </ThemedButton>
+
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaRegEnvelope className='Banner-menu-icon Icon-large' id="icon-mensagens"/>
-                    </div>
-                    <div className='Icon-container btn-themed-white-black'>
+                    </ThemedButton>
+
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaRegBookmark className='Banner-menu-icon Icon-large' id="icon-itens-salvos"/>
-                    </div>
-                    <div className='Icon-container btn-themed-white-black'>
+                    </ThemedButton>
+
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaBook className='Banner-menu-icon Icon-large' id="icon-listas"/>
-                    </div>
-                    <div className='Icon-container btn-themed-white-black'>
+                    </ThemedButton>
+
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaUserAlt className='Banner-menu-icon Icon-large' id="icon-perfil"/>
-                    </div>
-                    <div className='Icon-container btn-themed-white-black'>
-                        <FaRegCommentDots className='Banner-menu-icon Icon-large' id="icon-listas"/>
-                    </div>
+                    </ThemedButton>
+
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
+                        <FaRegCommentDots className='Banner-menu-icon Icon-large' id="icon-mais"/>
+                    </ThemedButton>
 
                 </div>
-
-                <div className='User-avatar-container btn-themed-white-black'>
+                
+                <ThemedContainer className='User-avatar-container' primaryColor='transparent' secondaryColor='black'>
                     <img className='User-avatar-container-icon Icon-xl'
                          alt='user profile pic' 
                          src='http://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png'
@@ -128,10 +137,14 @@ function Banner() {
                     />
                     <div className='User-avatar-hidden-options-screen-background Hidden' onClick={hideOptionsFromAvatarContainer}></div>
                     <div className='User-avatar-hidden-options-screen-container Hidden'>
-                        <span className='btn-themed-transparent-black'>Adicionar uma conta existente</span>
-                        <span className='btn-themed-transparent-black' onClick={handleLogOut}>Sair de {'@andrezzz'}</span>
+                        <ThemedButton primaryColor='white' secondaryColor='black'>
+                            Adicionar uma conta existente
+                        </ThemedButton>
+                        <ThemedButton primaryColor='white' secondaryColor='black' onClick={handleLogOut}>
+                            Sair de {"@"+user.info?.username}
+                        </ThemedButton>
                     </div>
-                </div>
+                </ThemedContainer>
 
             </header>
         );
@@ -142,74 +155,94 @@ function Banner() {
 
                 <div className='Banner-menu Banner-menu-flex-column'>
 
-                    <div className='Icon-container btn-themed-white-blue'>
-                        <FaTwitter className='Banner-menu-icon Icon-large' id="icon-twitter" fill='rgb(29, 155, 240)'/>
-                    </div>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='blue'>
+                        <FaTwitter className='Banner-menu-icon Icon-large' id="icon-twitter"/>
+                    </ThemedButton>
 
-                    <div className='Icon-container btn-themed-white-black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaHouseUser className='Banner-menu-icon Icon-large' id="icon-home"/>
                         <label className='Icon-container-label' htmlFor='icon-home'>Página inicial</label>
-                    </div>
+                    </ThemedButton>
 
-                    <div className='Icon-container btn-themed-white-black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaSlackHash className='Banner-menu-icon Icon-large' id="icon-explorar"/>
                         <label className='Icon-container-label' htmlFor='icon-explorar'>Explorar</label>
-                    </div>
+                    </ThemedButton>
 
-                    <div className='Icon-container btn-themed-white-black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaRegBell className='Banner-menu-icon Icon-large' id="icon-notificacoes"/>
                         <label className='Icon-container-label' htmlFor='icon-notificacao'>Notificações</label>
-                    </div>
+                    </ThemedButton>
 
-                    <div className='Icon-container btn-themed-white-black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaRegEnvelope className='Banner-menu-icon Icon-large' id="icon-mensagens"/>
                         <label  className='Icon-container-label' htmlFor='icon-mensagens'>Mensagens</label>
-                    </div>
+                    </ThemedButton>
 
-                    <div className='Icon-container btn-themed-white-black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaRegBookmark className='Banner-menu-icon Icon-large' id="icon-itens-salvos"/>
                         <label className='Icon-container-label' htmlFor='icon-itens-salvos'>Itens Salvos</label>
-                    </div>
+                    </ThemedButton>
 
-                    <div className='Icon-container btn-themed-white-black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaBook className='Banner-menu-icon Icon-large' id="icon-listas"/>
                         <label className='Icon-container-label' htmlFor='icon-listas'>Listas</label>
-                    </div>
+                    </ThemedButton>
 
-                    <div className='Icon-container btn-themed-white-black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaUserAlt className='Banner-menu-icon Icon-large' id="icon-perfil"/>
                         <label className='Icon-container-label' htmlFor='icon-perfil'>Perfil</label>
-                    </div>
+                    </ThemedButton>
 
-                    <div className='Icon-container btn-themed-white-black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
                         <FaRegCommentDots className='Banner-menu-icon Icon-large' id="icon-mais"/>
                         <label className='Icon-container-label' htmlFor='icon-mais'>Mais</label>
-                    </div>
+                    </ThemedButton>
 
-                    <button className='btn-primary btn-themed-blue-white Btn-banner-tweetar'>Tweetar</button>
+                    <ThemedButton className='Btn-banner-tweetar' primaryColor='blue' secondaryColor='white'>
+                        Tweetar
+                    </ThemedButton>
 
                 </div>
 
-                <div className='User-avatar-container btn-themed-white-black'>
-                    <img className='User-avatar-container-icon Icon-xl'
-                         alt='user profile pic' 
-                         src='http://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png'
-                         onClick={showOptionsFromAvatarContainer}
+                <ThemedContainer className='User-avatar-container' primaryColor='transparent' secondaryColor='black'>
+                    <img 
+                        className='User-avatar-container-icon Icon-xl'
+                        alt='user profile pic' 
+                        src='http://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png'
+                        onClick={showOptionsFromAvatarContainer}
                     />
                     <div className='User-avatar-container-info' onClick={showOptionsFromAvatarContainer}>
-                        <div className='User-avatar-container-info-name Span-medium-small'>{'André Luiz'}</div>
-                        {/*<FaLock className='Icon-small'/>*/}
-                        <div className='User-avatar-container-info-userName'>{'@andrezzz'}</div>
+                        <Text 
+                            className='User-avatar-container-info-name' 
+                            fontWeigth='medium' 
+                            fontSize='small' 
+                            fontColor='black'
+                        >
+                                {user.info?.name}
+                        </Text>
+                        <Text 
+                            className='User-avatar-container-info-username' 
+                            fontWeigth='normal' 
+                            fontSize='small' 
+                            fontColor='black'
+                        >
+                                {"@"+user.info?.username}
+                        </Text>
                     </div>
                     <div className='User-avatar-container-dots' onClick={showOptionsFromAvatarContainer}>
                         <BsThreeDots className='Icon-small'/>
                     </div>
                     <div className='User-avatar-hidden-options-screen-background Hidden' onClick={hideOptionsFromAvatarContainer}></div>
                     <div className='User-avatar-hidden-options-screen-container Hidden'>
-                        <span className='btn-themed-transparent-black'>Adicionar uma conta existente</span>
-                        <span className='btn-themed-transparent-black' onClick={handleLogOut}>Sair de {'@andrezzz'}</span>
+                        <ThemedButton className='option' primaryColor='white' secondaryColor='black'>
+                            Adicionar uma conta existente
+                        </ThemedButton>
+                        <ThemedButton className='option' primaryColor='white' secondaryColor='black' onClick={handleLogOut}>
+                            Sair de {"@"+user.info?.username}
+                        </ThemedButton>
                     </div>
-                </div>
+                </ThemedContainer>
 
             </header>
         );

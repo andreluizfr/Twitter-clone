@@ -4,22 +4,22 @@
     
 .Primary-column
     @include flex-column-start-center
-    border-left: 1px solid rgba(0,0,0,0.08)
-    border-right: 1px solid rgba(0,0,0,0.08)
+    border-left: 1px solid rgba($black,0.08)
+    border-right: 1px solid rgba($black,0.08)
     flex:1
     min-width: 600px
 
     &-header
         display: inline-block
         padding: 1rem 1rem
-        background-color: rgba(255, 255, 255, 0.7)
+        background-color: rgba($white, 0.7)
         backdrop-filter: blur(5px)         
         width: 100%
         
         &-star
             float: right
             cursor: pointer
-            padding: 0.3rem
+            padding: .3rem
             border-radius: 50%
         
         span
@@ -34,7 +34,7 @@
 
     .Show-more-tweets
         min-height: 0.5rem
-        background-color: white
+        background-color: $white
         width: 100%
 
                         

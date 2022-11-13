@@ -1,7 +1,11 @@
-import { useMediaQuery } from 'react-responsive';
+import './styles.css';
 import { BsStars } from 'react-icons/bs';
 import MakeTweet from '../../../components/MakeTweet';
 import Tweet from '../../../components/Tweet';
+import ThemedButton from '../../../components/ThemedButton';
+
+import { useMediaQuery } from 'react-responsive';
+
 
 function PrimaryColumn() {
 
@@ -21,7 +25,10 @@ function PrimaryColumn() {
                     <></>
                 }
                 <span onClick={navigateToHome}>Página inicial</span>
-                <BsStars className='Primary-column-header-star Icon-large btn-themed-white-black'/>
+                
+                <ThemedButton className='Primary-column-header-star' primaryColor='white' secondaryColor='black'>
+                    <BsStars className='Icon-medium'/>
+                </ThemedButton>
             </div>
 
             {isMediumOrLargeScreen?

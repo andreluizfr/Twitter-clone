@@ -36,12 +36,14 @@
   align-items: center;
   width: 100%;
 }
+.Tweet .Tweet-wrapper .Tweet-container-first-section-infos {
+  margin-left: 0.5rem;
+}
 .Tweet .Tweet-wrapper .Tweet-container-first-section-infos .Tweet-nickname:hover {
   text-decoration: underline;
 }
 .Tweet .Tweet-wrapper .Tweet-container-first-section-infos .Tweet-username {
-  color: rgb(83, 100, 113);
-  margin-right: 0.5rem;
+  margin: 0 0.5rem;
 }
 .Tweet .Tweet-wrapper .Tweet-container-first-section-infos .Tweet-dot {
   color: rgb(83, 100, 113);
@@ -49,7 +51,6 @@
   heigth: 0.2rem;
 }
 .Tweet .Tweet-wrapper .Tweet-container-first-section-infos .Tweet-date {
-  color: rgb(83, 100, 113);
   margin-left: 0.5rem;
 }
 .Tweet .Tweet-wrapper .Tweet-container-first-section-infos .Tweet-date:hover {
@@ -68,13 +69,14 @@
 }
 .Tweet .Tweet-wrapper .Tweet-container .Tweet-text {
   word-wrap: normal;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem 0.5rem;
 }
 .Tweet .Tweet-wrapper .Tweet-container .Tweet-media {
   max-width: 500px;
   max-height: 640px;
   border-radius: 1rem;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  margin-left: 0.5rem;
 }
 .Tweet .Tweet-wrapper .Tweet-container-toolbar {
   display: flex;
@@ -98,18 +100,21 @@
   height: 2rem;
 }
 .Tweet .Tweet-wrapper .Tweet-container-toolbar-item-comments {
+  color: rgb(83, 100, 113);
   font-size: 0.9rem;
 }
 .Tweet .Tweet-wrapper .Tweet-container-toolbar-item-comments:hover {
   color: rgb(29, 155, 240);
 }
 .Tweet .Tweet-wrapper .Tweet-container-toolbar-item-retweets {
+  color: rgb(83, 100, 113);
   font-size: 0.9rem;
 }
 .Tweet .Tweet-wrapper .Tweet-container-toolbar-item-retweets:hover {
   color: rgb(0, 186, 124);
 }
 .Tweet .Tweet-wrapper .Tweet-container-toolbar-item-likes {
+  color: rgb(83, 100, 113);
   font-size: 0.9rem;
 }
 .Tweet .Tweet-wrapper .Tweet-container-toolbar-item-likes:hover {

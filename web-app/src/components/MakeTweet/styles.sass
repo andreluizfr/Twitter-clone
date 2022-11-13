@@ -6,7 +6,7 @@
     @include flex-row-start-start
     width: 100%
     padding: 0 1.6rem
-    border-bottom: 1px solid rgba(0,0,0,0.08)
+    border-bottom: 1px solid rgba($black,0.08)
 
     &-icon
         margin-right: 1rem
@@ -23,20 +23,17 @@
         &-field
             @include flex-column-space-between-start
             width: 100%
-            border-bottom: 1px solid rgba(0,0,0,0.08)
+            border-bottom: 1px solid rgba($black,0.08)
 
             .Who-can-view-container
                 @include flex-row-space-around-center
-                border: 1px solid rgba(0,0,0,0.12)
+                border: 1px solid rgba($black,0.12)
                 border-radius: 0.8rem
                 padding: .2rem
                 cursor: pointer
 
-                &-span
-                    color: $tertiary-font-color
-
                 &-icon
-                    color: $tertiary-font-color
+                    color: $blue
                     margin-right: .5rem
 
             .Tweet-content
@@ -54,19 +51,19 @@
                 cursor: pointer
 
                 &-icon
-                    color: $tertiary-font-color
+                    color: $blue
 
-                &-span
-                    color: $tertiary-font-color
+                &-message
+                    margin-left: 0.2rem
 
         &-toolbar
             @include flex-row-space-between-center 
             width: 100%
+            padding-top: 1rem
             margin-bottom: 1rem
 
             &-icons
                 @include flex-row-space-between-center 
-                margin-top: 1rem
                 
                 &-icon
                     padding: 0.4rem 0.5rem
@@ -76,4 +73,3 @@
             .Btn-tweetar
                 padding: .5rem 1rem
                 border-radius: 1rem
-                font-size: $font-size-small

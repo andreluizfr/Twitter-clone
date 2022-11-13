@@ -1,16 +1,12 @@
 import './styles.css';
-import WhatsHappeningImg from '../../img/WhatsHappening.png';
 import { FaSearch } from 'react-icons/fa';
+import WhatsHappeningImg from './WhatsHappening.png';
 
 import { useMediaQuery } from 'react-responsive';
-import { useSelector } from 'react-redux';
-import { userState } from '../../redux/features/userSlice';
-import { StoreState } from '../../redux/store';
+
 
 
 function SidebarColumn() {
-    
-    const user: userState = useSelector( (state: StoreState) => state.user );
 
     const isMediumOrLargeScreen = useMediaQuery({ query: '(min-width: 721px)' });
 
