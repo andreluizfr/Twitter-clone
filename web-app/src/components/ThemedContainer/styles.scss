@@ -1,0 +1,40 @@
+@import '../../sass/_variables.sass';
+
+
+@mixin Container-themed ($primary-color, $secondary-color) {
+    background-color: $primary-color;
+    color: $secondary-color;
+    transition: .2s
+}
+
+
+.Container-themed-transparent-black{
+    @include Container-themed(transparent, $black);
+}
+.Container-themed-transparent-black:hover{
+    background-color: rgba($black, 0.15);
+}
+
+
+.Container-themed-transparent-blue{
+    @include Container-themed(transparent, $blue);
+}
+.Container-themed-transparent-blue:hover{
+    background-color: rgba($blue, 0.15);
+}
+
+
+.Container-themed-transparent-green{
+    @include Container-themed(transparent, $green);
+}
+.Container-themed-transparent-green:hover{
+    background-color: rgba($green, 0.15);
+}
+
+
+.Container-themed-transparent-pink{
+    @include Container-themed(transparent, $pink);
+}
+.Container-themed-transparent-pink:hover{
+    background-color: rgba($pink, 0.15);
+}

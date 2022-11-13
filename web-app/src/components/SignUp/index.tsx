@@ -1,8 +1,10 @@
-import {FaTwitter,FaGoogle, FaApple, FaCheckCircle} from 'react-icons/fa';
+import './styles.css';
+import {FaCheckCircle} from 'react-icons/fa';
+import Text from '../Text';
+import ThemedButton from '../ThemedButton';
+import StyledInput from '../StyledInput';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { newUser } from '../../redux/features/userSlice';
 import axios from 'axios';
 
 
@@ -21,19 +23,13 @@ const monthNames = [
     "Dezembro"                               
 ]
 
-interface ILoginResponse {
-    message: string
-    user: object | null
-    accessToken: string | null
-}
-
-interface ILoginComponent {
+interface ISignUpComponentProps {
     step: number
     setStep: React.Dispatch<React.SetStateAction<number>>
 }
 
 
-function SignUp ({step, setStep}: ILoginComponent ) {
+function SignUp ({step, setStep}: ISignUpComponentProps ) {
 
     const nameInputRef = useRef<HTMLInputElement | null>(null);
     const emailInputRef = useRef<HTMLInputElement | null>(null);
@@ -44,10 +40,7 @@ function SignUp ({step, setStep}: ILoginComponent ) {
     const [verificationCode, setVerificationCode] = useState<string>("");
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-
     const [serverResponse, setServerResponse] = useState<string>("");
-
-    const dispatch = useDispatch();
 
     function handleBlur (event: React.FocusEvent<HTMLInputElement>) {
         const el = (event.target as HTMLInputElement);
@@ -99,13 +92,13 @@ function SignUp ({step, setStep}: ILoginComponent ) {
     }, [enableAdvanceButton]);
 
 
-    function goToFourthStep (event: React.FormEvent<HTMLFormElement>) {
+    function goToSecondStep (event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        setStep(4);
+        setStep(2);
     }
 
-    function backToThirdStep () {
-        setStep(3);
+    function backToFirstStep () {
+        setStep(1);
     }
 
     function verifyEmail () {
@@ -117,7 +110,7 @@ function SignUp ({step, setStep}: ILoginComponent ) {
             console.log(response.data.message);
             
             if(response.status===201)
-                setStep(5);
+                setStep(3);
             else if (response.status===202){
                 setServerResponse(response.data.message);
 
@@ -162,7 +155,7 @@ function SignUp ({step, setStep}: ILoginComponent ) {
             console.log(response.data.message);
             
             if(response.status===201)
-                setStep(6);
+                setStep(4);
             else if (response.status===202){
                 setServerResponse(response.data.message);
 
@@ -248,52 +241,82 @@ function SignUp ({step, setStep}: ILoginComponent ) {
         
     }   
 
-    if(step===3)
+    if(step===1)
         return (
-            <form onSubmit={goToFourthStep}>
+            <form onSubmit={goToSecondStep}>
 
                 <div className="Signup">
                     
                     <div className='Signup-container'>
                         
-                        <div className='Signup-container-step Span-medium-medium'>Etapa 1 de 4</div>
+                        <Text className='Signup-container-step'
+                              fontWeigth='medium'
+                              fontSize='medium'
+                              fontColor='black'
+                        >
+                            Etapa 1 de 4
+                        </Text>
 
-                        <span className='Signup-container-title Span-medium-large'>Criar sua conta</span>
+                        <Text className='Signup-container-title'
+                              fontWeigth='medium'
+                              fontSize='large'
+                              fontColor='black'
+                        >
+                            Criar sua conta
+                        </Text>
 
-                        <div className='Input-animated'>
-                            <input className='Input-primary'
-                                type='text'
-                                required={true}
-                                ref={nameInputRef}
-                                onChange={handleNameChange}
-                                onBlur={handleBlur}
+
+                        <StyledInput>
+                            <input type='text'
+                                   required={true}
+                                   ref={nameInputRef}
+                                   onChange={handleNameChange}
+                                   onBlur={handleBlur}
                             />
                             <span>Nome</span>
                             <p>Digite seu nome</p>
-                        </div>
-                        <div className='Input-animated'>
-                            <input className='Input-primary'
-                                type='email'
-                                required={true}
-                                ref={emailInputRef}
-                                onChange={handleEmailChange}
-                                onBlur={handleBlur}
+                        </StyledInput>
+
+                        <StyledInput>
+                            <input type='email'
+                                   required={true}
+                                   ref={emailInputRef}
+                                   onChange={handleEmailChange}
+                                   onBlur={handleBlur}
                             />
                             <span>E-mail</span>
                             <p>Digite um e-mail válido</p>
-                        </div>
+                        </StyledInput>
 
                         <div className='Telephone-or-email'>
-                            <span className='Span-normal-small'>Usar telefone</span>
+                            <Text className='Telephone-or-email-text'
+                                  fontWeigth='normal'
+                                  fontSize='small'
+                                  fontColor='blue'
+                            >
+                                Usar telefone
+                            </Text>
                         </div>
 
                         <div className='Birth-date-wrapper'>
                             
-                            <span className='Birth-date-title Span-medium-small'>Data de nascimento</span>
-                            <span className='Birth-date-message Span-normal-smaller'>
+                            <Text className='Birth-date-title'
+                                  fontWeigth='medium'
+                                  fontSize='small'
+                                  fontColor='black'
+                            >
+                                Data de nascimento
+                            </Text>
+
+                            <Text className='Birth-date-message'
+                                  fontWeigth='normal'
+                                  fontSize='smaller'
+                                  fontColor='gray'
+                            >
                                 Isso não será exibido publicamente. Confirme usa própria idade, mesmo se esta conta
                                 for de empresa, de um animal de estimação ou outros.
-                            </span>
+                            </Text>
+
                             <div className='Birth-date-values'>
 
                                 <span>Mês</span>
@@ -333,8 +356,15 @@ function SignUp ({step, setStep}: ILoginComponent ) {
                     
 
                     </div>
-                    
-                    <button className='btn-primary btn-themed-black-white Btn-avancar' type='submit' disabled>Avançar</button>
+
+                    <ThemedButton className='Btn-avancar' primaryColor='black' secondaryColor='white' type='submit' disabled>
+                            <Text fontWeigth='medium' 
+                                  fontSize='small' 
+                                  fontColor='white'
+                            >
+                                Avançar
+                            </Text>
+                    </ThemedButton>
                     
                 </div>
 
@@ -342,56 +372,78 @@ function SignUp ({step, setStep}: ILoginComponent ) {
 
         );
     
-    if(step===4)
+    if(step===2)
         return (
             <div className="Signup">
                 
                 <div className='Signup-container'>
                         
-                        <div className='Signup-container-step Span-medium-medium'>Etapa 2 de 4</div>
+                        <Text className='Signup-container-step'
+                              fontWeigth='medium'
+                              fontSize='medium'
+                              fontColor='black'
+                        >
+                            Etapa 2 de 4
+                        </Text>
 
-                        <span className='Signup-container-title Span-medium-large'>Criar sua conta</span>
+                        <Text className='Signup-container-title'
+                              fontWeigth='medium'
+                              fontSize='large'
+                              fontColor='black'
+                        >
+                            Criar sua conta
+                        </Text>
 
-                        <div className='Filled-field'>
-                            <input
-                                className='Input-primary'
-                                onClick={backToThirdStep}
-                                placeholder={name}
+                        <StyledInput className='Filled-field'>
+                            <input onClick={backToFirstStep}
+                                   placeholder={name}
                             />
                             <span>Nome</span>
                             <FaCheckCircle className="Filled-field-check Icon-small"/>
-                        </div>
+                        </StyledInput>
 
-                        <div className='Filled-field'>
+                        <StyledInput className='Filled-field'>
                             <input
-                                className='Input-primary'
-                                onClick={backToThirdStep}
+                                onClick={backToFirstStep}
                                 placeholder={email}
                             />
                             <span>E-mail</span>
                             <FaCheckCircle className="Filled-field-check Icon-small"/>
-                        </div>
+                        </StyledInput>
 
-                        <div className='Filled-field'>
+                        <StyledInput className='Filled-field'>
                             <input
-                                className='Input-primary'
-                                onClick={backToThirdStep}
+                                onClick={backToFirstStep}
                                 placeholder={birthDate}
                             />
                             <span>Date</span>
                             <FaCheckCircle className="Filled-field-check Icon-small"/>
-                        </div>
+                        </StyledInput>
+
                 </div>
 
                 <div className='Signup-last-section'>
 
-                    <span className='Signup-last-section-message Span-normal-smaller'>
+                    <Text 
+                        className='Signup-last-section-message'
+                        fontWeigth='normal'
+                        fontSize='smaller'
+                        fontColor='black'
+                    >
                         Ao se inscrever, você concorda com os nossos <a href="#">Termos</a>, com a  <a href="#">Política de privacidade</a>
                         e com o <a href="#">Uso de Cookies</a>. O Twitter pode usar suas informações de contato, inclusive seu endereço de e-mail
                         e seu número de telefone, para os fins descritos na nossa Política de Privacidade. <a href="#">Saiba mais</a>
-                    </span>
+                    </Text>
 
-                    <button className='btn-primary btn-themed-blue-white Btn-inscrever-se' onClick={verifyEmail}>Inscrever-se</button>
+                    <ThemedButton className='Btn-inscrever-se' primaryColor='blue' secondaryColor='white' onClick={verifyEmail}>
+                        <Text 
+                            fontWeigth='normal'
+                            fontSize='normal'
+                            fontColor='white'
+                        >
+                            Inscrever-se
+                        </Text>
+                    </ThemedButton>
                     
                 </div>
 
@@ -400,7 +452,7 @@ function SignUp ({step, setStep}: ILoginComponent ) {
             </div>
         );
     
-    if (step===5)
+    if (step===3)
         return (
             
             <form onSubmit={validateCode}>
@@ -409,28 +461,63 @@ function SignUp ({step, setStep}: ILoginComponent ) {
                     
                     <div className='Signup-container'>
                         
-                        <div className='Signup-container-step Span-medium-medium'>Etapa 3 de 4</div>
+                        <Text 
+                            className='Signup-container-step'
+                            fontWeigth='medium'
+                            fontSize='medium'
+                            fontColor='black'
+                        >
+                            Etapa 3 de 4
+                        </Text>
 
-                        <span className='Signup-container-title Span-medium-large'>Enviamos um código para você</span>
+                        <Text 
+                            className='Signup-container-title'
+                            fontWeigth='medium'
+                            fontSize='large'
+                            fontColor='black'
+                        >
+                            Enviamos um código para você
+                        </Text>
 
-                        <span className='Signup-container-description Span-normal-small'>Insira-o abaixo para verificar {email}.</span>
+                        <Text 
+                            fontWeigth='normal'
+                            fontSize='small'
+                            fontColor='gray'
+                        >
+                            Insira-o abaixo para verificar {email}.
+                        </Text>
 
-                        <div className='Input-animated'>
-                            <input className='Input-primary'
+                        <StyledInput className='Verification-code-input'>
+                            <input
                                 type='text'
                                 required={true}
                                 onChange={handleCodeChange}
                             />
                             <span>Código de verificação</span>
-                        </div>
+                        </StyledInput>
 
                         <div className='Didnt-receive-email'>
-                            <span className='Span-normal-smaller' onClick={verifyEmail}>Não recebeu o e-mail?</span>
+                            <Text
+                                className='Didnt-receive-email-message'
+                                fontWeigth='normal'
+                                fontSize='smaller'
+                                fontColor='gray'
+                                onClick={verifyEmail}
+                            >
+                                Não recebeu o e-mail?
+                            </Text>
                         </div>
                     
                     </div>
                     
-                    <button className='btn-primary btn-themed-black-white Btn-avancar' type='submit' disabled>Avançar</button>
+                    <ThemedButton className='Btn-avancar' primaryColor='black' secondaryColor='white' type='submit' disabled>
+                        <Text fontWeigth='medium' 
+                                fontSize='small' 
+                                fontColor='white'
+                        >
+                            Avançar
+                        </Text>
+                    </ThemedButton>
                     
                     <span className='Signup-server-response Hidden'>{serverResponse}</span>
 
@@ -439,7 +526,7 @@ function SignUp ({step, setStep}: ILoginComponent ) {
             </form>
         );
 
-    if (step===6)
+    if (step===4)
         return (
             
             <form onSubmit={signup}>
@@ -448,14 +535,34 @@ function SignUp ({step, setStep}: ILoginComponent ) {
                     
                     <div className='Signup-container'>
                         
-                        <div className='Signup-container-step Span-medium-medium'>Etapa 4 de 4</div>
+                        <Text 
+                            className='Signup-container-step'
+                            fontWeigth='medium'
+                            fontSize='medium'
+                            fontColor='black'
+                        >
+                            Etapa 4 de 4
+                        </Text>
 
-                        <span className='Signup-container-title Span-medium-large'>Você precisará de um usuário e senha</span>
+                        <Text 
+                            className='Signup-container-title'
+                            fontWeigth='medium'
+                            fontSize='large'
+                            fontColor='black'
+                        >
+                            Você precisará de um usuário e senha
+                        </Text>
 
-                        <span className='Signup-container-description Span-normal-small'>É preciso ter 8 caracteres ou mais</span>
+                        <Text 
+                            fontWeigth='normal'
+                            fontSize='small'
+                            fontColor='gray'
+                        >
+                            É preciso ter 8 caracteres ou mais
+                        </Text>
                         
-                        <div className='Input-animated'>
-                            <input className='Input-primary'
+                        <StyledInput className='Username-input'>
+                            <input
                                 type='text'
                                 minLength={3}
                                 maxLength={30}
@@ -465,10 +572,10 @@ function SignUp ({step, setStep}: ILoginComponent ) {
                             />
                             <span>Username</span>
                             <p>Seu username precisa ter entre 3 à 20 caracteres.</p>
-                        </div>
+                        </StyledInput>
 
-                        <div className='Input-animated'>
-                            <input className='Input-primary'
+                        <StyledInput className='Password-input'>
+                            <input
                                 type='password'
                                 minLength={8}
                                 maxLength={30}
@@ -478,11 +585,18 @@ function SignUp ({step, setStep}: ILoginComponent ) {
                             />
                             <span>Senha</span>
                             <p>Sua senha precisa ter pelo menos 8 caracteres. Insira uma senha mais longa.</p>
-                        </div>
+                        </StyledInput>
                     
                     </div>
                     
-                    <button className='btn-primary btn-themed-black-white Btn-avancar' type='submit' disabled>Avançar</button>
+                    <ThemedButton className='Btn-avancar' primaryColor='black' secondaryColor='white' type='submit' disabled>
+                        <Text fontWeigth='medium' 
+                                fontSize='small' 
+                                fontColor='white'
+                        >
+                            Avançar
+                        </Text>
+                    </ThemedButton>
                     
                     <span className='Signup-server-response Hidden'>{serverResponse}</span>
 

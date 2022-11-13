@@ -1,9 +1,15 @@
+import './styles.css';
 import {FaTwitter,FaGoogle, FaApple} from 'react-icons/fa';
+import Text from '../Text';
+import ThemedButton from '../ThemedButton';
+import StyledInput from '../StyledInput';
 
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { newUser, login } from '../../redux/features/userSlice';
 import axios from 'axios';
+
+
 
 
 interface ILoginResponse {
@@ -13,13 +19,13 @@ interface ILoginResponse {
     refreshToken: string | null
 }
 
-interface ILoginComponent {
+interface ILoginComponentProps {
     step: number
     setStep: React.Dispatch<React.SetStateAction<number>>
 }
 
 
-function Login ({step, setStep}: ILoginComponent ) {
+function Login ({step, setStep}: ILoginComponentProps ) {
 
     const firstInputRef = useRef<HTMLInputElement | null>(null);
     const secondInputRef = useRef<HTMLInputElement | null>(null);
@@ -30,11 +36,11 @@ function Login ({step, setStep}: ILoginComponent ) {
 
     const dispatch = useDispatch();
 
-    function goToSecondStep () {
+    function goToPasswordStep () {
 
         if(firstInputRef?.current?.value){
             setUsername(firstInputRef.current.value);
-            setStep(2);
+            setStep(6);
         }
 
     }
@@ -96,46 +102,81 @@ function Login ({step, setStep}: ILoginComponent ) {
         }
     }   
 
-    if(step===1)
+    if(step===5)
         return (
             <div className="Login">
                 <FaTwitter fill="rgb(29, 155, 240)" className="Login-twitter-icon Icon-large"/>
                 
                 <div className='Login-container'>
 
-                    <span className='Login-container-title Span-bold-large'>Entrar no Twitter</span>
-                    <div className='btn-primary Btn-login-subscribe-with-google'>
-                        <FaGoogle className="Icon-small"/>
-                        <span className='Span-medium-smaller'>Fazer login com o Google</span>
-                    </div>
-                    <div className='btn-primary btn-themed-white-black Btn-login-subscribe-with-apple'>
-                        <FaApple className="Icon-small"/>
-                        <span className='Span-medium-small'>Entrar com Apple</span>
-                    </div>
-                    <div className='Span-lines-around'>
-                        <span className='Span-lines-around-line'></span>
+                    <Text className='Login-container-title' 
+                          fontWeigth='bold' 
+                          fontSize='large' 
+                          fontColor='black'
+                    >
+                        Entrar no Twitter
+                    </Text>
+
+                    <ThemedButton className='Btn-login-with' primaryColor='white' secondaryColor='blue'>
+                            <FaGoogle fill='black' className="Icon-smaller"/>
+                            <Text fontWeigth='medium' 
+                                  fontSize='small' 
+                                  fontColor='black'
+                            >
+                                Fazer login com o Google
+                            </Text>
+                    </ThemedButton>
+
+                    <ThemedButton className='Btn-login-with' primaryColor='white' secondaryColor='black'>
+                            <FaApple className="Icon-small"/>
+                            <Text fontWeigth='medium' 
+                                  fontSize='small' 
+                                  fontColor='black'
+                            >
+                                Entrar com Apple
+                            </Text>
+                    </ThemedButton>
+
+                    <div className='Lines-around'>
+                        <span className='Lines-around-line'></span>
                         <span>or</span>
-                        <span className='Span-lines-around-line'></span>
+                        <span className='Lines-around-line'></span>
                     </div>
-                    <div className='Input-animated'>
-                        <input className='Input-primary' 
-                               type='text'
+
+                    <StyledInput>
+                        <input type='text'
                                required={true}
                                ref={firstInputRef} 
                         />
                         <span>Celular, e-mail ou nome de usuário</span>
-                    </div>
-                    <button className='btn-primary btn-themed-black-white Btn-avancar' onClick={goToSecondStep}>Avançar</button>
-                    <button className='btn-primary btn-themed-white-black Btn-esqueceu-a-senha'>Esqueceu a senha?</button>
+                    </StyledInput>
+
+                    <ThemedButton className='Login-container-button' primaryColor='black' secondaryColor='white'  onClick={goToPasswordStep}>
+                            <Text fontWeigth='medium' 
+                                  fontSize='small' 
+                                  fontColor='white'
+                            >
+                                Avançar
+                            </Text>
+                    </ThemedButton>
+
+                    <ThemedButton className='Login-container-button' primaryColor='white' secondaryColor='black'  onClick={goToPasswordStep}>
+                            <Text fontWeigth='medium' 
+                                  fontSize='small'
+                                  fontColor='black'
+                            >
+                                Esqueceu a senha?
+                            </Text>
+                    </ThemedButton>
 
                 </div>
 
-                <span className='Span-subscribe Hidden'>Não tem uma conta? <a href="/">Inscreva-se</a></span>
+                <span className='Subscribe'>Não tem uma conta? <a href="/">Inscreva-se</a></span>
                 
             </div>
         );
     
-    if(step===2)
+    if(step===6)
         return (
 
             <div className="Login2">
@@ -143,26 +184,48 @@ function Login ({step, setStep}: ILoginComponent ) {
                 
                 <div className='Login2-container'>
 
-                    <span className='Login2-container-title Span-bold-large'>Digite sua senha</span>
-                    <div className='Input-animated'>
-                        <input className='Input-primary' disabled/>
+                    <Text className='Login2-container-title' 
+                          fontWeigth='bold' 
+                          fontSize='large' 
+                          fontColor='black'
+                    >
+                        Digite sua senha
+                    </Text>
+
+                    <StyledInput>
+                        <input disabled/>
                         <span>{username}</span>
-                    </div>
-                    <div className='Input-animated'>
-                        <input className='Input-primary'
-                               type='password'
+                    </StyledInput>
+                    
+                    <StyledInput className='Password-input'>
+                        <input type='password'
                                required={true}
                                ref={secondInputRef}
                                onChange={event=>enablePasswordButton(event)}
                         />
                         <span>Senha</span>
-                    </div>
-                    <span className='Forget-password'>Esqueceu sua senha?</span>
-                    <button onClick={handleLogin} className='btn-primary Btn-entrar btn-themed-black-white' disabled>Entrar</button>
+                    </StyledInput>
+
+                    <Text className='Forget-password'
+                          fontWeigth='normal'
+                          fontSize='smaller'
+                          fontColor='blue'
+                    >
+                        Esqueceu sua senha?
+                    </Text>
+
+
+                    <ThemedButton className='Btn-entrar' primaryColor='black' secondaryColor='white' onClick={handleLogin} disabled>
+                        <Text fontWeigth='medium'
+                              fontSize='normal'
+                              fontColor='white'>     
+                            Entrar
+                        </Text>
+                    </ThemedButton>
 
                 </div>
 
-                <span className='Span-subscribe'>Não tem uma conta? <a href="/">Inscreva-se</a></span>
+                <span className='Subscribe'>Não tem uma conta? <a href="/">Inscreva-se</a></span>
 
                 <span className='Login2-server-response Hidden'>{serverResponse}</span>
                 

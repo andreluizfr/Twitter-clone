@@ -1,12 +1,15 @@
-import { useEffect, useCallback } from 'react';
-import { useMediaQuery } from 'react-responsive';
-import Banner from './Banner';
+import './styles.css';
+import Banner from '../../components/Banner';
 import PrimaryColumn from './PrimaryColumn';
-import SidebarColumn from './SidebarColumn';
+import SidebarColumn from '../../components/SidebarColumn';
+
+import { useMediaQuery } from 'react-responsive';
+import { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { userState, newUser, removeUser } from '../../redux/features/userSlice';
 import { StoreState } from '../../redux/store';
 import axios from 'axios';
+
 interface IgetPrivateUserInfoResponse {
     auth: boolean
     authMessage: string
@@ -26,7 +29,7 @@ function HomePage () {
     const dispatch = useDispatch();
     const user: userState = useSelector( (state: StoreState) => state.user );
 
-    function refreshToken () {
+    const refreshToken =  useCallback(() => {
 
         axios.get('http://localhost:5353/user/refreshToken').then((response)=>{
 
@@ -44,7 +47,7 @@ function HomePage () {
             console.error(error);
         });
 
-    }
+    }, [dispatch]);
 
     const fetchPrivateUserInfo = useCallback(() => {
 
@@ -84,12 +87,13 @@ function HomePage () {
         });
         
 
-    }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dispatch, refreshToken]);
 
     
     useEffect (()=>{
         fetchPrivateUserInfo();
-    }, []);
+    }, [fetchPrivateUserInfo]);
     
 
     const isSmallScreen = useMediaQuery({ query: '(max-width: 720px)' });

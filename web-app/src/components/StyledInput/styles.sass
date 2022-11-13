@@ -1,0 +1,51 @@
+@import '../../sass/_variables'
+@import '../../sass/_mixins'
+
+    
+.Styled-input
+    @include flex-column-center-start
+    position: relative
+    margin-top: .5rem
+    width: 100%
+
+    input
+        font-size: $font-size-small
+        width: 100%
+        padding: 1.5rem .5rem .5rem .5rem
+        border: 1px solid rgba(0,0,0,0.24)
+        border-radius: 0.2rem
+
+    span
+        font-size: $font-size-small
+        color: $gray
+        position: absolute
+        left: .5rem
+        top: 1rem
+        pointer-events: none
+        transition: .2s
+
+    p
+        display: none
+        font-size: $font-size-smaller
+        color: $red
+
+    input:focus , input:valid
+        outline: 1px solid $blue
+        border: 1px solid $blue
+    
+    input:focus + span, input:valid + span
+        font-size: $font-size-smaller
+        color: $blue
+        top: 0.2rem
+
+    input:invalid[wasFocused="true"]
+        outline: 1px solid $red
+        border: 1px solid $red
+    
+    input:invalid[wasFocused="true"] + span
+        font-size: $font-size-smaller
+        color: $red
+        top: 0.2rem
+
+    input:invalid[wasFocused="true"] ~ p
+        display: block

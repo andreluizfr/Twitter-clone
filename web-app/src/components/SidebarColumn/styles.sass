@@ -1,0 +1,41 @@
+@import '../../sass/_variables'
+@import '../../sass/_mixins'
+    
+    
+.Sidebar-column
+    @include flex-column-start-center
+    padding-left: 2rem
+    width: calc(340px + 2rem)
+
+    &-header
+        padding: 0.5rem 0rem
+        background-color: rgba($white, 0.7)
+        backdrop-filter: blur(5px)
+
+        .Search-bar
+            @include flex-row-center-center
+            background-color: $almost-white
+            border-radius: 1.5rem
+            width: 340px
+            padding-left: 1rem
+
+            &-icon
+                margin: 0 1rem
+
+            &-input
+                height: 2.5rem
+                width: 20rem
+                border: none
+                outline: none
+                border-radius: 1.5rem
+                background-color: transparent
+                font-size: $font-size-small
+
+    &-whats-happening
+        img 
+            width: 340px
+            height: auto
+
+    &-who-follow
+        width: 340px
+        heigth: 400px

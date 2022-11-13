@@ -1,0 +1,39 @@
+.Primary-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  flex: 1;
+  min-width: 600px;
+}
+.Primary-column-header {
+  display: inline-block;
+  padding: 1rem 1rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  width: 100%;
+}
+.Primary-column-header-star {
+  float: right;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+.Primary-column-header span {
+  font-weight: 700;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.Primary-column-header-icon {
+  margin-right: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.Primary-column .Show-more-tweets {
+  min-height: 0.5rem;
+  background-color: white;
+  width: 100%;
+}/*# sourceMappingURL=styles.css.map */

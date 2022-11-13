@@ -1,0 +1,67 @@
+.Font-weigth-normal {
+  font-weight: 400;
+}
+
+.Font-weigth-medium {
+  font-weight: 500;
+}
+
+.Font-weigth-bold {
+  font-weight: 700;
+}
+
+.Font-size-smaller {
+  font-size: 0.9rem;
+}
+
+.Font-size-small {
+  font-size: 1rem;
+}
+
+.Font-size-normal {
+  font-size: 1.2rem;
+}
+
+.Font-size-medium {
+  font-size: 1.4rem;
+}
+
+.Font-size-large {
+  font-size: 2rem;
+}
+
+.Font-size-xl {
+  font-size: 3rem;
+}
+
+.Font-size-xxl {
+  font-size: 4rem;
+}
+
+.Font-color-black {
+  color: rgb(0, 0, 0);
+}
+
+.Font-color-white {
+  color: rgb(255, 255, 255);
+}
+
+.Font-color-blue {
+  color: rgb(29, 155, 240);
+}
+
+.Font-color-green {
+  color: rgb(0, 186, 124);
+}
+
+.Font-color-pink {
+  color: rgb(249, 24, 128);
+}
+
+.Font-color-red {
+  color: rgb(255, 0, 0);
+}
+
+.Font-color-gray {
+  color: rgb(83, 100, 113);
+}/*# sourceMappingURL=styles.css.map */

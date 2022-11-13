@@ -1,0 +1,11 @@
+.Floating-container {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  min-width: 600px;
+}
+.Floating-container .Background {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.24);
+}/*# sourceMappingURL=styles.css.map */

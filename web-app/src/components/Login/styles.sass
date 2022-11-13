@@ -1,0 +1,147 @@
+@import '../../sass/_variables'
+@import '../../sass/_mixins'
+    
+
+.Login
+    @include flex-column-start-center
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    margin: auto
+    width: 600px
+    height: 650px
+    background-color: $white
+    border-radius: 1rem
+
+    &-twitter-icon
+        margin-top: 1rem
+
+    &-container
+        @include flex-column-start-center
+        margin: 1rem 0
+        width: 300px
+
+        &-title
+            margin-bottom: 1rem
+            margin-left: 0
+            width: 100%
+        
+        .Btn-login-with
+            width: 300px
+            border: 1px solid rgba(0,0,0,0.24)
+            border-radius: 1rem
+            padding: 0.5rem 1rem
+            margin-top: 1rem
+
+            .Icon-smaller
+                margin-right: .25rem
+
+            .Icon-small 
+                margin-right: 0.2rem
+
+        .Lines-around  
+            margin-top: 0.5rem
+            width: 300px
+            span
+                display: inline-block
+
+            &-line
+                width: 45%
+                height: 0
+                border-bottom: 1px solid rgba(0,0,0,0.08)
+                margin: 3px
+
+        &-button
+            width: 300px
+            border: 1px solid rgba(0,0,0,0.24)
+            border-radius: 1.5rem
+            padding: .5rem 1rem
+            margin: 1rem 0
+
+    .Subscribe
+        margin-top: 2rem
+        font-size: $font-size-small
+        color: $gray
+
+        a
+            color: $blue
+            text-decoration: none
+        
+        a:visited
+            color: $blue
+        
+        a:hover 
+            text-decoration: underline
+
+
+.Login2
+    @include flex-column-start-center
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    margin: auto
+    width: 600px
+    height: 650px
+    background-color: $white
+    border-radius: 1rem
+
+    &-twitter-icon
+        margin-top: 1rem
+
+    &-container
+        @include flex-column-start-center
+        margin: 1rem 0
+        width: 450px
+        height: 500px
+
+        &-title
+            margin-bottom: 1rem
+            margin-left: 0
+            width: 100%
+        
+        .Forget-password
+            width: 100%
+            margin-bottom: 15rem
+            cursor: pointer
+
+        .Password-input
+            margin-top: 1rem
+
+        .Btn-entrar
+            width: 450px
+            border: 1px solid rgba(0,0,0,0.24)
+            border-radius: 1.5rem
+            padding: 0.8rem 1rem
+            margin-bottom: 0.5rem
+
+        .Btn-entrar:disabled
+            background: rgba(0,0,0,0.5)
+            cursor: initial
+
+    .Subscribe
+        margin: 0 0 2rem 0
+        font-size: $font-size-small
+        color: $gray
+
+        a
+            color: $blue
+            text-decoration: none
+        
+        a:visited
+            color: $blue
+        
+        a:hover 
+            text-decoration: underline
+
+
+    &-server-response
+        position: absolute
+        top: calc(650px + 1rem)
+        padding: 1rem
+        background-color: $blue
+        color: $white
+

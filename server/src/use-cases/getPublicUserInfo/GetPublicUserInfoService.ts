@@ -2,9 +2,6 @@ import { IUsersRepository } from "../../repos/IUsersRepository";
 import { PublicUser } from "../../repos/UsersRepository";
 
 export interface IGetPublicUserInfoRequest{
-    auth: boolean
-    authMessage: string
-    message: string
     username: string;
 }
 //contains the business logic

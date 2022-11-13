@@ -1,0 +1,155 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 600px;
+  height: 650px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1rem;
+}
+.Login-twitter-icon {
+  margin-top: 1rem;
+}
+.Login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem 0;
+  width: 300px;
+}
+.Login-container-title {
+  margin-bottom: 1rem;
+  margin-left: 0;
+  width: 100%;
+}
+.Login-container .Btn-login-with {
+  width: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+.Login-container .Btn-login-with .Icon-smaller {
+  margin-right: 0.25rem;
+}
+.Login-container .Btn-login-with .Icon-small {
+  margin-right: 0.2rem;
+}
+.Login-container .Lines-around {
+  margin-top: 0.5rem;
+  width: 300px;
+}
+.Login-container .Lines-around span {
+  display: inline-block;
+}
+.Login-container .Lines-around-line {
+  width: 45%;
+  height: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 3px;
+}
+.Login-container-button {
+  width: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 1.5rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+}
+.Login .Subscribe {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: rgb(83, 100, 113);
+}
+.Login .Subscribe a {
+  color: rgb(29, 155, 240);
+  text-decoration: none;
+}
+.Login .Subscribe a:visited {
+  color: rgb(29, 155, 240);
+}
+.Login .Subscribe a:hover {
+  text-decoration: underline;
+}
+
+.Login2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 600px;
+  height: 650px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1rem;
+}
+.Login2-twitter-icon {
+  margin-top: 1rem;
+}
+.Login2-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem 0;
+  width: 450px;
+  height: 500px;
+}
+.Login2-container-title {
+  margin-bottom: 1rem;
+  margin-left: 0;
+  width: 100%;
+}
+.Login2-container .Forget-password {
+  width: 100%;
+  margin-bottom: 15rem;
+  cursor: pointer;
+}
+.Login2-container .Password-input {
+  margin-top: 1rem;
+}
+.Login2-container .Btn-entrar {
+  width: 450px;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 1.5rem;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+}
+.Login2-container .Btn-entrar:disabled {
+  background: rgba(0, 0, 0, 0.5);
+  cursor: initial;
+}
+.Login2 .Subscribe {
+  margin: 0 0 2rem 0;
+  font-size: 1rem;
+  color: rgb(83, 100, 113);
+}
+.Login2 .Subscribe a {
+  color: rgb(29, 155, 240);
+  text-decoration: none;
+}
+.Login2 .Subscribe a:visited {
+  color: rgb(29, 155, 240);
+}
+.Login2 .Subscribe a:hover {
+  text-decoration: underline;
+}
+.Login2-server-response {
+  position: absolute;
+  top: calc(650px + 1rem);
+  padding: 1rem;
+  background-color: rgb(29, 155, 240);
+  color: rgb(255, 255, 255);
+}/*# sourceMappingURL=styles.css.map */

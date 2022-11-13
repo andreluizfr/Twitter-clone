@@ -1,5 +1,6 @@
-@import 'variables'
-@import 'mixins'
+@import '../../sass/_variables'
+@import '../../sass/_mixins'
+
 
 .First-page
     @include flex-column-center-center
@@ -47,11 +48,50 @@
                 width: 100%
                 margin: 2rem 0
 
-                .Span-lines-around  
+                .Btn-subscribe-with
                     width: 300px
+                    border: 1px solid rgba(0,0,0,0.24)
+                    border-radius: 1rem
+                    padding: 0.5rem 1rem
+                    margin-top: 1rem
 
-                .Span-subscribe-politics
-                    width:300px
+                    &-text
+                        overflow: hidden
+                        white-space: nowrap
+                        text-overflow: ellipsis
+                    
+                    .Icon-small
+                        margin-right: .2rem
+                    
+                    .Icon-smaller
+                        margin-right: .25rem
+
+                .Lines-around  
+                    margin-top: 0.5rem
+                    width: 300px
+                    span
+                        display: inline-block
+
+                    &-line
+                        width: 45%
+                        height: 0
+                        border-bottom: 1px solid rgba(0,0,0,0.08)
+                        margin: 3px
+
+                .Subscribe-politics
+                    margin-top: .5rem
+                    width: 300px
+                    font-size: $font-size-pp
+
+                    a
+                        color: $tertiary-font-color
+                        text-decoration: none
+                    
+                    a:visited
+                        color: $tertiary-font-color
+                    
+                    a:hover 
+                        text-decoration: underline
 
             
             &-login-container
@@ -66,6 +106,7 @@
                     padding: 0.5rem 1rem
                     font-size: $font-size-small
                     transition: 200ms
+                    margin-top: 1rem
                 
 
     &-footer
@@ -89,18 +130,6 @@
         
         &-link:hover
             text-decoration: underline
-
-    
-    &-floated-page
-        position: fixed
-        top: 0
-        z-index: 999
-        min-width: 600px
-
-        &-background
-            width: 100vw
-            height: 100vh
-            background-color: rgba(0,0,0,0.24)
 
 
 

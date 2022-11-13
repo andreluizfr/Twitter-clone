@@ -1,0 +1,92 @@
+.Banner {
+  display: flex;
+  background-color: #FFFFFF;
+}
+.Banner-menu {
+  display: flex;
+}
+.Banner-menu .Banner-menu-icon {
+  color: #000000;
+  margin: 1rem;
+}
+.Banner-menu .Icon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 2rem;
+}
+.Banner-menu .Icon-container .Banner-menu-icon {
+  margin: 1rem;
+  color: #000000;
+}
+.Banner-menu .Icon-container-label {
+  margin: 1rem 1rem 1rem 0;
+  font-size: 1.4rem;
+  color: #000000;
+}
+.Banner-menu .Btn-banner-tweetar {
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 12rem;
+  border-radius: 1.5rem;
+}
+.Banner .User-avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+.Banner .User-avatar-container-icon {
+  border-radius: 50%;
+  cursor: pointer;
+}
+.Banner .User-avatar-container-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 7rem;
+}
+.Banner .User-avatar-container-info-name {
+  margin-right: 0.5rem;
+}
+.Banner .User-avatar-container-info-userName {
+  margin-left: 0.5rem;
+}
+.Banner .User-avatar-container-dots {
+  padding-left: 3rem;
+}
+.Banner .User-avatar-container .User-avatar-hidden-options-screen-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  cursor: initial;
+}
+.Banner .User-avatar-container .User-avatar-hidden-options-screen-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  position: absolute;
+  top: -9.5rem;
+  left: -1rem;
+  width: 19rem;
+  height: 9rem;
+  padding: 1rem 0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 1.5rem;
+  background-color: #FFFFFF;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.Banner .User-avatar-container .User-avatar-hidden-options-screen-container span {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+}/*# sourceMappingURL=styles.css.map */

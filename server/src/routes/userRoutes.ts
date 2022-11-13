@@ -43,7 +43,7 @@ userRouter.get('/getPrivateInfo', authentication, (request: Request, response: R
     return getPrivateUserInfoController.handle(request, response);
 });
 
-userRouter.get('/getPublicInfo', (request: Request, response: Response)=>{
+userRouter.post('/getPublicInfo', (request: Request, response: Response)=>{
     return getPublicUserInfoController.handle(request, response);
 });
 

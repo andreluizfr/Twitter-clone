@@ -1,0 +1,191 @@
+@import '../../sass/_variables'
+@import '../../sass/_mixins'
+    
+    
+.Signup
+    @include flex-column-space-between-center
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    margin: auto
+    width: 600px
+    height: 650px
+    background-color: $white
+    border-radius: 1rem
+
+    &-container
+        @include flex-column-start-start
+        margin: 1rem 0
+        width: 420px
+
+        &-step
+            margin: 0 0 1.5rem 0
+
+        &-title
+            margin: 0 0 0.5rem 0
+
+        .Verification-code-input
+            margin-top: 1.5rem
+        
+        .Username-input
+            margin-top: 1.5rem
+        
+        .Password-input
+            margin-top: 1.5rem
+
+        .Telephone-or-email
+            width: 100%
+            cursor: pointer
+    
+            &-text
+                float: right
+
+            &-text:hover
+                text-decoration: underline
+                
+
+        .Didnt-receive-email
+            width: 100%
+
+            &-message
+                float: left
+
+            &-message:hover
+                text-decoration: underline
+                cursor: pointer
+
+        .Birth-date-wrapper
+            @include flex-column-center-start
+            margin: 1rem 0 2rem 0
+
+            .Birth-date-title
+                margin: 0 0 0.5rem 0
+
+            .Birth-date-message
+                margin: 0 0 .5rem 0
+                line-height: 1rem
+                letter-spacing: -0.5px
+
+            .Birth-date-values
+                @include flex-row-center-center
+                position: relative
+                width: 100%
+
+                span
+                    position: absolute
+                    top: 0.1rem
+                    font-size: $font-size-pp
+                    color: $gray
+
+                span:nth-child(1)
+                    left: 0.5rem
+
+                span:nth-child(2)
+                    left: 13.5rem
+
+                span:nth-child(3)
+                    left: 19.2rem
+
+                select:nth-child(4)
+                    flex: 5
+                    margin-right: 0.5rem
+
+                select:nth-child(5)
+                    flex: 2
+
+                select:nth-child(6)
+                    flex: 3
+                    margin-left: 0.5rem
+
+                select
+                    height: 3.5rem
+                    border: 1px solid rgba(0,0,0,0.24)
+                    border-radius: 0.2rem
+                    font-size: $font-size-small
+                    color: $gray
+                    cursor: pointer 
+                    padding-left: 0.1rem
+
+                    &::-ms-expand 
+                        display: none
+
+                    option
+                        font-size: $font-size-normal
+                        color: $gray
+
+                select:focus
+                    border: 1px solid rgba(0,0,0,0.24)
+                    outline: none
+
+        .Filled-field
+            @include flex-column-center-start
+            position: relative
+            margin-top: .5rem
+            width: 100%
+
+            input
+                font-size: $font-size-small
+                padding: 1.5rem .5rem .5rem .5rem
+
+            span
+                font-size: $font-size-smaller
+                color: $gray
+                position: absolute
+                left: .5rem
+                top: 0.2rem
+                pointer-events: none
+                transition: .2s
+            
+            &-check
+                color: $green
+                position: absolute
+                right: 0.5rem
+                bottom: 0.5rem
+
+    .Btn-avancar
+        width: 420px
+        padding: .8rem 1rem
+        margin-bottom: 2rem
+        border: 1px solid rgba(0,0,0,0.24)
+        border-radius: 1.5rem
+
+    .Btn-avancar:disabled
+        background: rgba(0,0,0,0.5)
+        cursor: initial
+
+
+
+    &-last-section
+        @include flex-column-start-start
+        width: 420px
+
+        &-message
+            color: $gray
+            margin: 0 0 0.5rem 0
+            line-height: 1rem
+            letter-spacing: -0.5px
+
+            a
+                color: $blue
+                text-decoration: none
+
+            a:visited
+                color: $blue
+
+            a:hover 
+                text-decoration: underline
+        
+        .Btn-inscrever-se
+            width: 100%
+            border-radius: 1.5rem
+            padding: 0.8rem 1rem
+            margin-bottom: 1rem 
+
+    &-server-response
+        position: absolute
+        top: calc(650px + 1rem)
+        padding: 1rem
+        background-color: $blue
+        color: $white

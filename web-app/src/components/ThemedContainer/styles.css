@@ -1,0 +1,39 @@
+.Container-themed-transparent-black {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  transition: 0.2s;
+}
+
+.Container-themed-transparent-black:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.Container-themed-transparent-blue {
+  background-color: transparent;
+  color: rgb(29, 155, 240);
+  transition: 0.2s;
+}
+
+.Container-themed-transparent-blue:hover {
+  background-color: rgba(29, 155, 240, 0.15);
+}
+
+.Container-themed-transparent-green {
+  background-color: transparent;
+  color: rgb(0, 186, 124);
+  transition: 0.2s;
+}
+
+.Container-themed-transparent-green:hover {
+  background-color: rgba(0, 186, 124, 0.15);
+}
+
+.Container-themed-transparent-pink {
+  background-color: transparent;
+  color: rgb(249, 24, 128);
+  transition: 0.2s;
+}
+
+.Container-themed-transparent-pink:hover {
+  background-color: rgba(249, 24, 128, 0.15);
+}/*# sourceMappingURL=styles.css.map */

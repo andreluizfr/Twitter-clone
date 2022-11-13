@@ -1,37 +1,42 @@
+import './styles.css';
 import {FaTwitter,FaGoogle, FaApple} from 'react-icons/fa';
-import { useState } from 'react';
+import Text from '../../components/Text';
+import ThemedButton from '../../components/ThemedButton';
+import FloatingContainer from '../../components/FloatingContainer';
 import Login from '../../components/Login';
 import SignUp from '../../components/SignUp';
+
+import { useState } from 'react';
 
 
 function FirstPage () {
 
     const [step, setStep] = useState(0);
-    //
 
-    function showLoginPage () {
-        const el = document.getElementsByClassName("First-page-floated-page");
-        el[0].classList.remove("Hidden");
+    function showSignUpPage () {
+        const el = document.getElementsByClassName("Floating-container");
+        el[1].classList.remove("Hidden");
         setStep(1);
     }
 
+    function hideSignUpPage () {
+        const el = document.getElementsByClassName("Floating-container");
+        el[1].classList.add("Hidden");
+        setStep(0);
+    }
+
+    function showLoginPage () {
+        const el = document.getElementsByClassName("Floating-container");
+        el[0].classList.remove("Hidden");
+        setStep(5);
+    }
+
     function hideLoginPage () {
-        const el = document.getElementsByClassName("First-page-floated-page");
+        const el = document.getElementsByClassName("Floating-container");
         el[0].classList.add("Hidden");
         setStep(0);
     }
 
-    function showSignUpPage () {
-        const el = document.getElementsByClassName("First-page-floated-page");
-        el[1].classList.remove("Hidden");
-        setStep(3);
-    }
-
-    function hideSignUpPage () {
-        const el = document.getElementsByClassName("First-page-floated-page");
-        el[1].classList.add("Hidden");
-        setStep(0);
-    }
 
     return (
         <div className='First-page'>
@@ -41,31 +46,71 @@ function FirstPage () {
                 <div className="First-page-wrapper-right-column">
 
                     <FaTwitter fill="rgb(29, 155, 240)" className="Icon-xl"/>
-                    <span className='First-page-wrapper-right-column-happening-now Span-bold-xxl'>Acontecendo agora</span>
-                    <span className='Span-bold-large'>Inscreva-se no Twitter hoje mesmo.</span>
+                    <Text className='First-page-wrapper-right-column-happening-now' 
+                          fontWeigth='bold' 
+                          fontSize='xxl'
+                          fontColor='black'
+                    >
+                        Inscreva-se no Twitter hoje mesmo.
+                    </Text>
+
                     <div className='First-page-wrapper-right-column-subscribe-container'>
-                        <div className='btn-primary Btn-login-subscribe-with-google'>
-                            <FaGoogle className="Icon-small"/>
-                            <span className="Span-normal-small">Inscrever-se no Google</span>
-                        </div>
-                        <div className='btn-primary btn-themed-white-black Btn-login-subscribe-with-apple'>
+
+                        <ThemedButton className='Btn-subscribe-with' primaryColor='white' secondaryColor='blue'>
+                            <FaGoogle fill='black' className="Icon-smaller"/>
+                            <Text fontWeigth='medium'
+                                  fontSize='small'
+                                  fontColor='black'
+                            >
+                                Inscrever-se no Google
+                            </Text>
+                        </ThemedButton>
+
+                        <ThemedButton className='Btn-subscribe-with' primaryColor='white' secondaryColor='black'>
                             <FaApple fill="black" className="Icon-small"/>
-                            <span className="Span-medium-small">Inscrever-se com Apple</span>
-                        </div>
-                        <div className='Span-lines-around'>
-                            <span className='Span-lines-around-line'></span>
+                            <Text fontWeigth='medium' 
+                                  fontSize='small' 
+                                  fontColor='black'
+                            >
+                                Inscrever-se com Apple
+                            </Text>
+                        </ThemedButton>
+
+                        <div className='Lines-around'>
+                            <span className='Lines-around-line'></span>
                             <span>or</span>
-                            <span className='Span-lines-around-line'></span>
+                            <span className='Lines-around-line'></span>
                         </div>
-                        <button className='btn-primary btn-themed-blue-white Btn-subscribe-with-number' onClick={showSignUpPage}>
-                            Inscreva-se com número de celular ou e-mail
-                        </button>
-                        <span className='Span-subscribe-politics'>Ao se inscrever, você concorda com os <a href="/">Termos de Serviço</a> e a <a href="/">Política de Privacidade</a>, incluindo o <a href="/">Uso de Cookies</a>.</span>
+
+                        <ThemedButton className='Btn-subscribe-with' primaryColor='blue' secondaryColor='white' onClick={showSignUpPage}>
+                            <Text className='Btn-subscribe-with-text' 
+                                  fontWeigth='medium' 
+                                  fontSize='small' 
+                                  fontColor='white'
+                            >
+                                Inscreva-se com número de celular ou e-mail
+                            </Text>
+                        </ThemedButton>
+
+                        <span className='Subscribe-politics'>Ao se inscrever, você concorda com os <a href="/">Termos de Serviço</a> e a <a href="/">Política de Privacidade</a>, incluindo o <a href="/">Uso de Cookies</a>.</span>
+                    
                     </div>
                     
                     <div className="First-page-wrapper-right-column-login-container">
-                        <span className='Span-bold-normal'>Já tem uma conta?</span>
-                        <button className='btn-primary btn-themed-white-blue Btn-first-page-login' onClick={showLoginPage}>Entrar</button>
+                        <Text fontWeigth='bold' 
+                              fontSize='normal' 
+                              fontColor='black'
+                        >
+                            Já tem uma conta?
+                        </Text>
+                        <ThemedButton className='Btn-first-page-login' primaryColor='white' secondaryColor='blue' onClick={showLoginPage}>
+                            <Text fontWeigth='medium'
+                                  fontSize='small'
+                                  fontColor='blue'
+                            >
+                                Entrar
+                            </Text>
+                        </ThemedButton>
                     </div>
                     
                 </div>
@@ -97,16 +142,13 @@ function FirstPage () {
                 <a href="/" className='First-page-footer-link'>@ 2022 Twitter, Inc.</a>
             </footer>
 
-
-            <div className='First-page-floated-page Hidden'>
-                <div className='First-page-floated-page-background' onClick={hideLoginPage}></div>
+            <FloatingContainer className='Hidden' escapeFunction={hideLoginPage}>
                 <Login step={step} setStep={setStep}/>
-            </div>
+            </FloatingContainer>
 
-            <div className='First-page-floated-page Hidden'>
-                <div className='First-page-floated-page-background' onClick={hideSignUpPage}></div>
+            <FloatingContainer className='Hidden' escapeFunction={hideSignUpPage}>
                 <SignUp step={step} setStep={setStep}/>
-            </div>
+            </FloatingContainer>
 
         </div>
     );

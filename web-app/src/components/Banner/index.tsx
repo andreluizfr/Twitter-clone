@@ -1,3 +1,4 @@
+import './styles.css';
 import {FaTwitter,
         FaHouseUser,
         FaSlackHash,
@@ -185,7 +186,7 @@ function Banner() {
                         <label className='Icon-container-label' htmlFor='icon-mais'>Mais</label>
                     </div>
 
-                    <button className='btn-primary btn-themed-blue-white btn-banner-tweetar'>Tweetar</button>
+                    <button className='btn-primary btn-themed-blue-white Btn-banner-tweetar'>Tweetar</button>
 
                 </div>
 
@@ -197,7 +198,7 @@ function Banner() {
                     />
                     <div className='User-avatar-container-info' onClick={showOptionsFromAvatarContainer}>
                         <div className='User-avatar-container-info-name Span-medium-small'>{'André Luiz'}</div>
-                        <FaLock className='Icon-small'/>
+                        {/*<FaLock className='Icon-small'/>*/}
                         <div className='User-avatar-container-info-userName'>{'@andrezzz'}</div>
                     </div>
                     <div className='User-avatar-container-dots' onClick={showOptionsFromAvatarContainer}>

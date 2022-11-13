@@ -1,5 +1,8 @@
+import './css/styles.css';
+
 import FirstPage from './pages/FirstPage';
 import HomePage from './pages/HomePage';
+import ProfilePage from './pages/ProfilePage';
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -31,8 +34,15 @@ function App() {
             {
                 path: "/",
                 element: <HomePage/>,
+            },
+            {
+                path: "/home",
+                element: <HomePage/>,
+            },
+            {
+                path: "/:username",
+                element: <ProfilePage/>,
             }
-            
         ]);
     else
         router = createBrowserRouter([

@@ -1,0 +1,51 @@
+.Styled-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+.Styled-input input {
+  font-size: 1rem;
+  width: 100%;
+  padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 0.2rem;
+}
+.Styled-input span {
+  font-size: 1rem;
+  color: rgb(83, 100, 113);
+  position: absolute;
+  left: 0.5rem;
+  top: 1rem;
+  pointer-events: none;
+  transition: 0.2s;
+}
+.Styled-input p {
+  display: none;
+  font-size: 0.9rem;
+  color: rgb(255, 0, 0);
+}
+.Styled-input input:focus, .Styled-input input:valid {
+  outline: 1px solid rgb(29, 155, 240);
+  border: 1px solid rgb(29, 155, 240);
+}
+.Styled-input input:focus + span, .Styled-input input:valid + span {
+  font-size: 0.9rem;
+  color: rgb(29, 155, 240);
+  top: 0.2rem;
+}
+.Styled-input input:invalid[wasFocused=true] {
+  outline: 1px solid rgb(255, 0, 0);
+  border: 1px solid rgb(255, 0, 0);
+}
+.Styled-input input:invalid[wasFocused=true] + span {
+  font-size: 0.9rem;
+  color: rgb(255, 0, 0);
+  top: 0.2rem;
+}
+.Styled-input input:invalid[wasFocused=true] ~ p {
+  display: block;
+}/*# sourceMappingURL=styles.css.map */

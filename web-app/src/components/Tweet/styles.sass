@@ -1,0 +1,106 @@
+@import '../../sass/_variables'
+@import '../../sass/_mixins'
+    
+    
+.Tweet
+    @include flex-column-start-start
+    width: 100%
+    padding: 1rem
+    border-bottom: 1px solid rgba(0,0,0,0.08)
+    cursor: pointer
+
+    &-retweet-or-maybe-you-like
+        @include flex-row-start-center
+
+    .Tweet-wrapper
+        @include flex-row-center-start
+
+        &-user-icon
+            border-radius: 50%
+
+        &-user-icon:hover
+            filter: brightness(95%)
+
+        .Tweet-container
+            @include flex-column-start-start
+
+            &-first-section
+                @include flex-row-space-between-center
+                width: 100%
+
+                &-infos
+
+                    .Tweet-nickname:hover
+                        text-decoration: underline
+
+                    .Tweet-username
+                        color: $quaternary-font-color
+                        margin-right: .5rem
+                    
+                    .Tweet-dot
+                        color: $quaternary-font-color
+                        width: 0.2rem
+                        heigth: 0.2rem
+
+                    .Tweet-date
+                        color: $quaternary-font-color
+                        margin-left: .5rem
+                    
+                    .Tweet-date:hover
+                        text-decoration: underline
+
+                &-more
+                    color: $quaternary-font-color
+                    border-radius: 50%
+                    padding: .5rem
+                    width: 2rem
+                    height: 2rem
+                    cursor: pointer
+                
+                &-more:hover
+                    color: $blue
+            
+            .Tweet-text
+                word-wrap: normal
+                margin-bottom: .5rem
+            
+            .Tweet-media
+                max-width: 500px
+                max-height: 640px
+                border-radius: 1rem
+                box-shadow: 0 0 1px rgba(#000000, .25)
+
+            &-toolbar
+                @include flex-row-space-between-center
+                width: 100%
+                margin-top: 0.5rem
+
+                div:last-child
+                    margin-right: 3rem
+
+                &-item
+                    @include flex-row-space-between-center
+
+                    &-icon
+                        border-radius: 50%
+                        padding: .5rem
+                        width: 2rem
+                        height: 2rem
+
+                    &-comments
+                        font-size: $font-size-smaller
+                    
+                    &-comments:hover
+                        color: $blue
+                        
+                    &-retweets
+                        font-size: $font-size-smaller
+                    
+                    &-retweets:hover
+                        color: $green
+                    
+                    &-likes
+                        font-size: $font-size-smaller
+                    
+                    &-likes:hover
+                        color: $pink

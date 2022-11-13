@@ -1,0 +1,92 @@
+.Make-tweet {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 1.6rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.Make-tweet-icon {
+  margin-right: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.Make-tweet-icon:hover {
+  filter: brightness(95%);
+}
+.Make-tweet-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+}
+.Make-tweet-container-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.Make-tweet-container-field .Who-can-view-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.8rem;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.Make-tweet-container-field .Who-can-view-container-span {
+  color: rgb(29, 155, 240);
+}
+.Make-tweet-container-field .Who-can-view-container-icon {
+  color: rgb(29, 155, 240);
+  margin-right: 0.5rem;
+}
+.Make-tweet-container-field .Tweet-content {
+  width: 100%;
+  height: 3rem;
+  font-size: 1.4rem;
+  border: none;
+  outline: none;
+}
+.Make-tweet-container-field .Who-can-comment-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.Make-tweet-container-field .Who-can-comment-container-icon {
+  color: rgb(29, 155, 240);
+}
+.Make-tweet-container-field .Who-can-comment-container-span {
+  color: rgb(29, 155, 240);
+}
+.Make-tweet-container-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.Make-tweet-container-toolbar-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.Make-tweet-container-toolbar-icons-icon {
+  padding: 0.4rem 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.Make-tweet-container-toolbar .Btn-tweetar {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+}/*# sourceMappingURL=styles.css.map */

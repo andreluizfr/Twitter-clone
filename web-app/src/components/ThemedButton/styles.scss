@@ -1,0 +1,47 @@
+@import '../../sass/_variables.sass';
+@import '../../sass/_mixins.sass';
+
+.Btn {
+    @include flex-row-center-center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+@mixin Btn-themed ($primary-color, $secondary-color) {
+    background-color: $primary-color;
+    box-shadow: 0 0 1px rgba($primary-color, .25);
+    color: $secondary-color;
+    transition: .2s
+}
+
+.Btn-themed-white-black{
+    @include Btn-themed($white, $black);
+}
+.Btn-themed-white-black:hover{
+    background-color: rgba($black, 0.15);
+}
+
+
+.Btn-themed-white-blue{
+    @include Btn-themed($white, $blue);
+}
+.Btn-themed-white-blue:hover{
+    background-color: rgba($blue, 0.15);
+}
+
+
+.Btn-themed-blue-white{
+    @include Btn-themed($blue, $white);
+}
+.Btn-themed-blue-white:hover{
+    background-color: $dark-blue;
+}
+
+
+.Btn-themed-black-white{
+    @include Btn-themed($black, $white);
+}
+.Btn-themed-black-white:hover{
+    background-color: $opaque-black;
+}

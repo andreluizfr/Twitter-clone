@@ -1,0 +1,79 @@
+@import '../../sass/_variables'
+@import '../../sass/_mixins'
+
+
+.Make-tweet
+    @include flex-row-start-start
+    width: 100%
+    padding: 0 1.6rem
+    border-bottom: 1px solid rgba(0,0,0,0.08)
+
+    &-icon
+        margin-right: 1rem
+        border-radius: 50%
+        cursor: pointer
+
+    &-icon:hover
+        filter: brightness(95%)
+
+    &-container
+        @include flex-column-center-start
+        flex: 1
+
+        &-field
+            @include flex-column-space-between-start
+            width: 100%
+            border-bottom: 1px solid rgba(0,0,0,0.08)
+
+            .Who-can-view-container
+                @include flex-row-space-around-center
+                border: 1px solid rgba(0,0,0,0.12)
+                border-radius: 0.8rem
+                padding: .2rem
+                cursor: pointer
+
+                &-span
+                    color: $tertiary-font-color
+
+                &-icon
+                    color: $tertiary-font-color
+                    margin-right: .5rem
+
+            .Tweet-content
+                width: 100%
+                height: 3rem
+                font-size: $font-size-medium
+                border: none
+                outline: none
+
+            .Who-can-comment-container
+                @include flex-row-space-around-center
+                border-radius: 0.8rem
+                padding: .2rem .5rem
+                margin-bottom: 1rem
+                cursor: pointer
+
+                &-icon
+                    color: $tertiary-font-color
+
+                &-span
+                    color: $tertiary-font-color
+
+        &-toolbar
+            @include flex-row-space-between-center 
+            width: 100%
+            margin-bottom: 1rem
+
+            &-icons
+                @include flex-row-space-between-center 
+                margin-top: 1rem
+                
+                &-icon
+                    padding: 0.4rem 0.5rem
+                    border-radius: 50%
+                    cursor: pointer
+            
+            .Btn-tweetar
+                padding: .5rem 1rem
+                border-radius: 1rem
+                font-size: $font-size-small
