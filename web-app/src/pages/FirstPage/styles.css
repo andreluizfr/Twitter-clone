@@ -5,8 +5,8 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  background-color: #FFFFFF;
-  color: #000000;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   min-width: 600px;
 }
 .First-page-wrapper {
@@ -135,7 +135,6 @@
 }
 .First-page-footer-link:visited {
   text-decoration: none;
-  color: #000000;
   color: rgb(83, 100, 113);
 }
 .First-page-footer-link:hover {

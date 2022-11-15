@@ -53,6 +53,14 @@ function Banner() {
         el2[0].classList.add('Hidden');
     }
 
+    function goToMyProfilePage () {
+        window.location.href = "http://localhost:3000/"+user.info?.username;
+    }
+
+    function goToHomePage () {
+        window.location.href = "http://localhost:3000/"
+    }
+
     const isSmallScreen = useMediaQuery({ query: '(max-width: 720px)' });
     const isMediumScreen = useMediaQuery({ query: '(max-width: 1100px)' });
     const isLargeScreen = useMediaQuery({ query: '(max-width: 1279px)' });
@@ -63,7 +71,7 @@ function Banner() {
             <header className='Banner Banner-flex-row'>
                 <div className='Banner-menu Banner-menu-flex-row'>
                     
-                    <div className='Icon-container btn-themed-white-black'>
+                    <div className='Icon-container btn-themed-white-black' onClick={goToHomePage}>
                         <FaHouseUser className='Banner-menu-icon Icon-large' id="icon-home"/>
                     </div>
                     <div className='Icon-container btn-themed-white-black'>
@@ -90,7 +98,7 @@ function Banner() {
                         <FaTwitter className='Banner-menu-icon Icon-large' id="icon-twitter"/>
                     </ThemedButton>
 
-                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black' onClick={goToHomePage}>
                         <FaHouseUser className='Banner-menu-icon Icon-large' id="icon-home"/>
                     </ThemedButton>
 
@@ -119,7 +127,7 @@ function Banner() {
                         <FaBook className='Banner-menu-icon Icon-large' id="icon-listas"/>
                     </ThemedButton>
 
-                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black' onClick={goToMyProfilePage}>
                         <FaUserAlt className='Banner-menu-icon Icon-large' id="icon-perfil"/>
                     </ThemedButton>
 
@@ -159,7 +167,7 @@ function Banner() {
                         <FaTwitter className='Banner-menu-icon Icon-large' id="icon-twitter"/>
                     </ThemedButton>
 
-                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black' onClick={goToHomePage}>
                         <FaHouseUser className='Banner-menu-icon Icon-large' id="icon-home"/>
                         <label className='Icon-container-label' htmlFor='icon-home'>Página inicial</label>
                     </ThemedButton>
@@ -189,7 +197,7 @@ function Banner() {
                         <label className='Icon-container-label' htmlFor='icon-listas'>Listas</label>
                     </ThemedButton>
 
-                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black'>
+                    <ThemedButton className='Icon-container' primaryColor='white' secondaryColor='black' onClick={goToMyProfilePage}>
                         <FaUserAlt className='Banner-menu-icon Icon-large' id="icon-perfil"/>
                         <label className='Icon-container-label' htmlFor='icon-perfil'>Perfil</label>
                     </ThemedButton>

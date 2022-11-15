@@ -6,7 +6,7 @@ import StyledInput from '../StyledInput';
 
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { newUser, login } from '../../redux/features/userSlice';
+import { newUser } from '../../redux/features/userSlice';
 import axios from 'axios';
 
 
@@ -73,7 +73,6 @@ function Login ({step, setStep}: ILoginComponentProps ) {
 
                 if(data.user && data.accessToken){
 
-                    dispatch(login());
                     dispatch(newUser({
                         info: data.user
                     }));

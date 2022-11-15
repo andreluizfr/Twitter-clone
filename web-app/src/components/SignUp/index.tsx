@@ -571,7 +571,7 @@ function SignUp ({step, setStep}: ISignUpComponentProps ) {
                                 onBlur={handleBlur}
                             />
                             <span>Username</span>
-                            <p>Seu username precisa ter entre 3 à 20 caracteres.</p>
+                            <p>Seu username precisa ter entre 3 à 30 caracteres.</p>
                         </StyledInput>
 
                         <StyledInput className='Password-input'>

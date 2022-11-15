@@ -1,1 +1,123 @@
-/*# sourceMappingURL=styles.css.map */
+.MainColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  flex: 1;
+  min-width: 600px;
+}
+.MainColumn-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+}
+.MainColumn-header-back-arrow {
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.MainColumn-header-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.MainColumn-user-container {
+  width: 100%;
+}
+.MainColumn-user-container-banner {
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  background-color: rgb(207, 217, 222);
+}
+.MainColumn-user-container-banner-icon {
+  position: absolute;
+  bottom: -4rem;
+  border-radius: 50%;
+  border: 4px solid rgb(255, 255, 255);
+  cursor: pointer;
+}
+.MainColumn-user-container-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem;
+}
+.MainColumn-user-container-infos-left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 4rem;
+  width: 50%;
+}
+.MainColumn-user-container-infos-left-side .Name-username {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 1rem;
+}
+.MainColumn-user-container-infos-left-side .Joined-in {
+  margin-bottom: 1rem;
+}
+.MainColumn-user-container-infos-left-side .Following-followers-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.MainColumn-user-container-infos-left-side .Following-followers-wrapper .Following {
+  margin-right: 1rem;
+}
+.MainColumn-user-container-infos-left-side .Following-followers-wrapper .Following-label {
+  margin-left: 0.2rem;
+  cursor: pointer;
+}
+.MainColumn-user-container-infos-left-side .Following-followers-wrapper .Following-label:hover {
+  text-decoration: underline;
+}
+.MainColumn-user-container-infos-left-side .Following-followers-wrapper .Followers {
+  margin-left: 1rem;
+}
+.MainColumn-user-container-infos-left-side .Following-followers-wrapper .Followers-label {
+  margin-left: 0.2rem;
+  cursor: pointer;
+}
+.MainColumn-user-container-infos-left-side .Following-followers-wrapper .Followers-label:hover {
+  text-decoration: underline;
+}
+.MainColumn-user-container-infos-right-side .Edit-profile {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+}
+.MainColumn-user-container-tweets-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.MainColumn-user-container-tweets-menu-button {
+  flex: 1;
+  cursor: pointer;
+}
+.MainColumn-user-container-tweets-menu-button-text {
+  padding: 1rem 0;
+  border-bottom: 3px solid transparent;
+  font-size: 1rem;
+  color: rgb(83, 100, 113);
+  font-weight: 400;
+}
+.MainColumn-user-container-tweets-menu-button-text[active=true] {
+  border-bottom: 3px solid rgb(29, 155, 240);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,132 @@
+@import '../../../sass/_variables';
+@import '../../../sass/_mixins';
+
+.MainColumn{
+    @include flex-column-start-center;
+    border-left: 1px solid rgba($black,0.08);
+    border-right: 1px solid rgba($black,0.08);
+    flex:1;
+    min-width: 600px;
+
+    &-header{
+        @include flex-row-start-center;
+        width: 100%;
+        padding: .5rem;
+
+        &-back-arrow{
+            padding: .5rem;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        &-infos{
+            @include flex-column-center-start;    
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+
+
+    }
+
+    &-user-container{
+        width: 100%;
+        
+        &-banner{
+            position: relative;
+            width: 100%;
+            height: 10rem;
+            background-color: $light-gray;
+
+            &-icon{
+                position: absolute;
+                bottom: -4rem;
+                border-radius: 50%;
+                border: 4px solid $white;
+                cursor: pointer;
+            }
+        }
+
+        &-infos{
+            @include flex-row-space-between-start;
+            padding: 1rem;
+
+            &-left-side{
+                @include flex-column-center-start;
+                padding-top: 4rem;
+                width: 50%;
+
+                .Name-username{
+                    @include flex-column-center-start;
+                    position: relative;
+                    margin-bottom: 1rem; 
+                }
+
+                .Joined-in{
+                    margin-bottom: 1rem;
+                }
+
+                .Following-followers-wrapper{
+                    @include flex-row-start-center;
+
+                    .Following{
+                        margin-right: 1rem;
+
+                        &-label{
+                            margin-left: 0.2rem;
+                            cursor: pointer;
+                        }
+                        &-label:hover{
+                            text-decoration: underline;
+                        }
+                    }
+
+                    .Followers{
+                        margin-left: 1rem;
+
+                        &-label{
+                            margin-left: 0.2rem;
+                            cursor: pointer;
+                        }
+                        &-label:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+            }
+
+            &-right-side{
+
+                .Edit-profile{
+                    padding: 0.5rem 1rem;
+                    border: 1px solid rgba($black,0.15);
+                    border-radius: 1rem;
+                }
+            }
+        }
+        
+        &-tweets-menu{
+            @include flex-row-space-between-center;
+            border-bottom: 1px solid rgba($black,0.08);
+
+            &-button{
+                flex: 1;
+                cursor: pointer;
+
+                &-text{
+                    padding: 1rem 0;
+                    border-bottom: 3px solid transparent;
+                    font-size: $font-size-small;
+                    color: $gray;
+                    font-weight: 400;
+                }
+
+                &-text[active='true']{
+                    border-bottom: 3px solid $blue;
+                    color: $black;
+                    font-weight: 500;
+                }
+            }
+
+        }
+    }
+}

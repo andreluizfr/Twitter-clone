@@ -12,12 +12,27 @@ import Text from '../Text';
 import ThemedButton from '../ThemedButton';
 import ThemedContainer from '../ThemedContainer';
 
+import { useSelector } from 'react-redux';
+import { userState } from '../../redux/features/userSlice';
+import { StoreState } from '../../redux/store';
+
 function MakeTweet () {
+
+    const user: userState = useSelector( (state: StoreState) => state.user );
+
+    function goToMyProfilePage () {
+        window.location.href = "http://localhost:3000/"+user.info?.username;
+    }
 
     return (
         <div className="Make-tweet">
                     
-            <img className='Make-tweet-icon Icon-xl' alt='user profile pic' src="http://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png"></img>
+            <img 
+                className='Make-tweet-icon Icon-xl' 
+                alt='user profile pic' 
+                src="http://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png"
+                onClick={goToMyProfilePage}
+            />
 
             <div className='Make-tweet-container'>
 

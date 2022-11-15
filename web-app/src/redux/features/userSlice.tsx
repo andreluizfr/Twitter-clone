@@ -21,10 +21,8 @@ const userSlice = createSlice({
         info: null
     } as userState,
     reducers: {
-        login(state){
-            state.logged = true;
-        },
         newUser(state, action) {
+            state.logged = true;
             state.info = action.payload.info;
         },
         removeUser(state){
@@ -35,5 +33,5 @@ const userSlice = createSlice({
     }
 });
 
-export const {login,  newUser, removeUser } = userSlice.actions;
+export const { newUser, removeUser } = userSlice.actions;
 export default userSlice.reducer;
