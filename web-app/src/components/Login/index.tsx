@@ -7,7 +7,7 @@ import StyledInput from '../StyledInput';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { newUser } from '../../redux/features/userSlice';
-import axios from 'axios';
+import axios from '../../utils/axios';
 
 
 
@@ -16,7 +16,6 @@ interface ILoginResponse {
     message: string
     user: object | null
     accessToken: string | null
-    refreshToken: string | null
 }
 
 interface ILoginComponentProps {
@@ -67,7 +66,7 @@ function Login ({step, setStep}: ILoginComponentProps ) {
 
         if(username && password){
 
-            axios.post('http://localhost:5353/user/login', {username: username, password: password}).then((response)=>{
+            axios.post('/user/login', {username: username, password: password}).then((response)=>{
 
                 const data = response.data as ILoginResponse;
 
@@ -77,6 +76,7 @@ function Login ({step, setStep}: ILoginComponentProps ) {
                         info: data.user
                     }));
                     localStorage.setItem("x-access-token", data.accessToken);
+                    window.location.reload();
 
                 } else {
                     

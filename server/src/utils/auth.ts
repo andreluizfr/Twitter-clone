@@ -9,8 +9,7 @@ export interface IjwtPayload {
 export function createAccessToken (username: string) {
 
     const accessToken = jwt.sign({ username: username }, process.env.JWT_SECRET || 'ssshhhhhhh', {
-        //expiresIn: process.env.JWT_EXP || 900 // expires in 15 min
-        expiresIn: 600 // expires in 10 minutos
+        expiresIn: 900 // expires in 15 min
     });
 
     return accessToken;
@@ -31,7 +30,7 @@ export function authentication (req : Request, res: Response, next: NextFunction
     const authHeader = req.headers.authorization;
 
     if(!authHeader)
-        return res.send({auth: false, authMessage: 'No token provided.'});
+        return res.send({refresh: false, message: 'No token provided.'});
 
     const [ , accessToken] = authHeader.split(" ");
 
@@ -41,26 +40,22 @@ export function authentication (req : Request, res: Response, next: NextFunction
         
         //repassando essas informaçoes pelo req pra rota solicitada
         req.body.username = jwtPayload.username;
-        req.body.auth = true;
-        req.body.authMessage = 'Succesfull authentication with Access Token.';
         next();
 
     } catch (err) {
-        
+        console.log(err.name);
         if(err.name === 'TokenExpiredError') {
 
             return res.send({
-                auth: false,
                 refresh: true,
-                authMessage: 'You need to refresh your accessToken.'
+                message: 'You need to refresh your accessToken.'
             });
 
         } else {
 
             return res.send({
-                auth: false,
                 refresh: false,
-                authMessage: 'Invalid access token, you need logging again.'
+                message: 'Invalid access token, you need logging again.'
             });
 
         }

@@ -14,7 +14,6 @@ export class GetPrivateUserInfoService{
 
     async execute(data: IGetPrivateUserInfoRequest){
 
-        console.log(JSON.stringify(data));
         const user = await this.usersRepository.findByUsername(data.username);
 
         if(user){

@@ -430,9 +430,9 @@ function SignUp ({step, setStep}: ISignUpComponentProps ) {
                         fontSize='smaller'
                         fontColor='black'
                     >
-                        Ao se inscrever, você concorda com os nossos <a href="#">Termos</a>, com a  <a href="#">Política de privacidade</a>
-                        e com o <a href="#">Uso de Cookies</a>. O Twitter pode usar suas informações de contato, inclusive seu endereço de e-mail
-                        e seu número de telefone, para os fins descritos na nossa Política de Privacidade. <a href="#">Saiba mais</a>
+                        Ao se inscrever, você concorda com os nossos <a href="/">Termos</a>, com a  <a href="/">Política de privacidade</a>
+                        e com o <a href="/">Uso de Cookies</a>. O Twitter pode usar suas informações de contato, inclusive seu endereço de e-mail
+                        e seu número de telefone, para os fins descritos na nossa Política de Privacidade. <a href="/">Saiba mais</a>
                     </Text>
 
                     <ThemedButton className='Btn-inscrever-se' primaryColor='blue' secondaryColor='white' onClick={verifyEmail}>

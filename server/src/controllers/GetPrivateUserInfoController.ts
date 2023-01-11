@@ -14,10 +14,7 @@ export default new class LoginController{
 
             const user  = await getPrivateUserInfoService.execute(req.body) as  PrivateUser ;
 
-            console.log(JSON.stringify(user));
             return res.status(200).send({
-                auth: req.body.auth,
-                authMessage: req.body.authMessage,
                 message: "User found.",
                 user: user
             });
@@ -25,8 +22,6 @@ export default new class LoginController{
         } catch (err) {
 
             return res.status(202).send({
-                auth: req.body.auth,
-                authMessage: req.body.authMessage,
                 message: err.message || 'Unexpected error.',
                 user: null
             });

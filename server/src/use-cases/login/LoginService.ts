@@ -29,8 +29,9 @@ export class LoginService{
                 if (updatedUser){
                     const {userId, refreshToken, created_at, ...privateUser} = updatedUser;
 
+                    console.log("refresh token atribuído apos login - ", refreshToken);
                     return {accessToken: accessToken, refreshToken: refreshToken, user: privateUser };
-                }
+                }  else throw new Error("Couldn't find user.");
                     
             }
                 

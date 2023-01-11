@@ -1,26 +1,28 @@
+import './styles.css';
+
 import Banner from '../../components/Banner';
-import MainColumn from './MainColumn';
+import MainColumn from '../../components/ProfileMainColumn';
 import SidebarColumn from '../../components/SidebarColumn';
 
 import { useEffect, useCallback, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useSelector, useDispatch } from 'react-redux';
-import { userState, newUser, removeUser } from '../../redux/features/userSlice';
-import { StoreState } from '../../redux/store';
+//import { useSelector, useDispatch } from 'react-redux';
+//import { userState, newUser, removeUser } from '../../redux/features/userSlice';
+//import { StoreState } from '../../redux/store';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 
-interface PublicUser {
+interface IProfileData {
     name: string
     username: string
     bio: string
     photoURL: string
 }
 
-interface IgetPublicUserInfoResponse {
+interface IfetchProfileResponse {
     message: string
-    user: PublicUser | null
+    user: IProfileData | null
 }
 
 function ProfilePage () {
@@ -28,22 +30,22 @@ function ProfilePage () {
     //const dispatch = useDispatch();
     //const user: userState = useSelector( (state: StoreState) => state.user );
 
-    const [requestedUser, setRequestedUser] = useState <PublicUser| null> (null);
+    const [profile, setProfile] = useState <IProfileData| null> (null);
 
     let { username } = useParams();
 
-    const fetchRequestedUserInfo = useCallback(() => {
+    const fetchProfile = useCallback(() => {
 
         if(username){
             axios.post('http://localhost:5353/user/getPublicInfo', {username: username}).then((response)=>{
 
-                const data = response.data as IgetPublicUserInfoResponse;
+                const data = response.data as IfetchProfileResponse;
                 console.log(data.message);
                 
                 if (data.user) {
 
                     console.log(data.user);
-                    setRequestedUser(data.user);
+                    setProfile(data.user);
 
                 } 
 
@@ -57,8 +59,8 @@ function ProfilePage () {
 
     
     useEffect (()=>{
-        fetchRequestedUserInfo();
-    }, [fetchRequestedUserInfo]);
+        fetchProfile();
+    }, [fetchProfile]);
     
 
     const isSmallScreen = useMediaQuery({ query: '(max-width: 720px)' });
@@ -66,10 +68,10 @@ function ProfilePage () {
 
     if(isSmallScreen)
         return (
-            <div className='Home-page Home-page-flex-column'>
+            <div className='Profile-page Profile-page-flex-column'>
 
-                <main className='Home-page-main-content'>
-                    <MainColumn requestedUser={requestedUser}/>
+                <main className='Profile-page-main-content'>
+                    <MainColumn profile={profile}/>
                 </main>
 
                 <div className="Fixed-bottom">
@@ -81,14 +83,14 @@ function ProfilePage () {
 
     if(isMediumScreen)
         return (
-            <div className='Home-page Home-page-flex-row'>
+            <div className='Profile-page Profile-page-flex-row'>
 
                 <div className="Sticky-top">
                     <Banner/>
                 </div>
 
-                <main className='Home-page-main-content'>
-                    <MainColumn requestedUser={requestedUser}/>
+                <main className='Profile-page-main-content'>
+                    <MainColumn profile={profile}/>
                 </main>
                 
 
@@ -96,14 +98,14 @@ function ProfilePage () {
         );
     else
         return (
-            <div className='Home-page Home-page-flex-row'>
+            <div className='Profile-page Profile-page-flex-row'>
 
             <div className="Sticky-top">
                     <Banner/>
                 </div>
 
-                <main className='Home-page-main-content'>
-                    <MainColumn requestedUser={requestedUser}/>
+                <main className='Profile-page-main-content'>
+                    <MainColumn profile={profile}/>
                     <SidebarColumn/>
                 </main>
 

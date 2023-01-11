@@ -12,7 +12,6 @@ export class RefreshTokenService{
 
         let username;
 
-        console.log(refreshToken);
         try {
             const jwtPayload = jwt.verify(refreshToken, process.env.SECRET || 'ssshhhhhhh') as IjwtPayload;
             username = jwtPayload.username;
@@ -23,6 +22,7 @@ export class RefreshTokenService{
             throw new Error("Invalid Refresh Token, please log in.");
         }
 
+        console.log("procura de usuário para refresh - ", username, refreshToken);
         const user = await this.usersRepository.findByRefreshToken(username, refreshToken);
 
         if(user){

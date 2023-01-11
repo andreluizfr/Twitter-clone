@@ -36,7 +36,7 @@ export class UsersRepository implements IUsersRepository{
     async createUser(user: User) : Promise <User | null> {
         const userRepository = AppDataSource.getRepository(User);
         const userCreated = await userRepository.save(user);
-        return userCreated
+        return userCreated;
     };
 
     async getPublicInfo(username: string ) : Promise <PublicUser | null> {
@@ -55,9 +55,9 @@ export class UsersRepository implements IUsersRepository{
         if (user){
             user.refreshToken = newRefreshToken;
             const updatedUser = await userRepository.save(user);
-            return updatedUser
+            return updatedUser;
         } else {
-            return null
+            return null;
         }
     }
 
@@ -65,9 +65,9 @@ export class UsersRepository implements IUsersRepository{
         const userRepository = AppDataSource.getRepository(User);
         const user = await userRepository.findOneBy({username: username, refreshToken: refreshToken});
         if (user)
-            return user
+            return user;
         else
-            return null
+            return null;
     }
 
     async invalidateRefreshToken(username: string, refreshToken: string) : Promise <User | null>{

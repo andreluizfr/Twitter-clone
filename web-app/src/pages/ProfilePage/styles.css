@@ -1,0 +1,14 @@
+.Profile-page {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+.Profile-page-main-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  max-width: 950px;
+}/*# sourceMappingURL=styles.css.map */

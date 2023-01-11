@@ -1,13 +1,13 @@
 import './styles.css';
 import { BsStars } from 'react-icons/bs';
-import MakeTweet from '../../../components/MakeTweet';
-import Tweet from '../../../components/Tweet';
-import ThemedButton from '../../../components/ThemedButton';
+import MakeTweet from '../MakeTweet';
+import Tweet from '../Tweet';
+import ThemedButton from '../ThemedButton';
 
 import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
-import { userState } from '../../../redux/features/userSlice';
-import { StoreState } from '../../../redux/store';
+import { userState } from '../../redux/features/userSlice';
+import { StoreState } from '../../redux/store';
 
 
 function PrimaryColumn() {

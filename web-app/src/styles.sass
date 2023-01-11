@@ -52,6 +52,7 @@ h2
 .Sticky-top
     position: sticky
     top: 0
+    z-index: 9999999999999
 
 .Sticky-bottom
     position: sticky
@@ -64,6 +65,12 @@ h2
 .Fixed-bottom
     position: fixed
     bottom: 0
+
+.Profile-page-flex-row
+    @include flex-row-center-start
+
+.Profile-page-flex-column
+    @include flex-column-start-center
 
 
 

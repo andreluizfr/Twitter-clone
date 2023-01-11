@@ -3,7 +3,11 @@ import path from 'path';
 import express, { Request, Response, NextFunction } from 'express';
 import {userRouter} from './routes/userRoutes';
 import cookieParser from 'cookie-parser';
-const cors = require('cors');
+import cors from 'cors';
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true 
+};
 
 // **** Init express **** //
 const app = express();
@@ -12,7 +16,7 @@ const app = express();
 // **** Set basic express settings **** //
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 
 

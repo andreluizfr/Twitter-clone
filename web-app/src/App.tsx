@@ -1,25 +1,25 @@
 import FirstPage from './pages/FirstPage';
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
+import LoadingPage from './pages/LoadingPage';
 
-import { useEffect, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { userState, removeUser, newUser } from './redux/features/userSlice';
-import { StoreState } from './redux/store';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { removeUser, newUser } from './redux/features/userSlice';
+
+import axios from '../src/utils/axios';
 
 import {
     createBrowserRouter,
     RouterProvider
 } from "react-router-dom";
 
-interface IgetPrivateUserInfoResponse {
+import { useQuery } from 'react-query';
+
+interface IFetchUserResponse {
     auth: boolean
-    authMessage: string
-    username?: string
-    message?: string
-    user?: object | null
     refresh?: boolean
+    message: string
+    user?: object | null
 }
 
 interface IrefreshTokenResponse {
@@ -31,71 +31,74 @@ interface IrefreshTokenResponse {
 function App() {
 
     const dispatch = useDispatch();
-    const user: userState = useSelector( (state: StoreState) => state.user );
 
-    function refreshToken () {
-
-        axios.get('http://localhost:5353/user/refreshToken').then((response)=>{
-
-            const data = response.data as IrefreshTokenResponse;
-            console.log(data.message);
-
-            if(data.accessToken){
-                console.log("old accessToken", localStorage.getItem("x-access-token"));
-                console.log("new accessToken", data.accessToken);
-                localStorage.setItem("x-access-token", data.accessToken);
-            }
-
-        }).catch(error=>{
-            console.error(error);
-        });
-
-    }
-
-    const fetchPrivateUserInfo = useCallback(() => {
+    const { data, isFetching, isError, error } = useQuery('fetchUser', async () => {
 
         const accessToken = localStorage.getItem("x-access-token");
 
-        axios.get('http://localhost:5353/user/getPrivateInfo', {headers: { Authorization: `Bearer ${accessToken}` }}).then((response)=>{
+        if(accessToken){
+            const response = await axios.get('/user/getPrivateInfo', {headers: { Authorization: `Bearer ${accessToken}` }});
 
-                const data = response.data as IgetPrivateUserInfoResponse;
-                console.log(data.authMessage);
-
-                if (!data.auth && data.refresh) {
-
-                    refreshToken();
-
-                } else if (data.user) {
-
-                    console.log(data.message);
-                    console.log(data.user);
-                    dispatch(newUser({
-                        info: data.user
-                    }));
-
-                } else {
-
-                    console.log(data.message);
-                    dispatch(removeUser());
-
+            const data = response.data as IFetchUserResponse;
+            console.log(data);
+            
+            if (data.refresh){
+                try{ 
+                    await refreshToken();
+                    window.location.reload();
+                } catch (error) {
+                    console.error(error);
                 }
+            }
+            return data.user;
+        }
 
-        }).catch(error => {
-            console.error(error);
-        });
-        
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [dispatch]);
-
+        return null;
     
-    useEffect (()=>{
-        fetchPrivateUserInfo();
-    }, [fetchPrivateUserInfo]);
+    }, {
+        refetchOnWindowFocus: false,
+        staleTime: 1000 * 10 //10 segundos
+    });
+
+    async function refreshToken () {
+
+        try{
+
+            const response = await axios.get('/user/refreshToken');
+
+            const data = response.data as IrefreshTokenResponse;
+            console.log(data);
+
+            if(data.accessToken) localStorage.setItem("x-access-token", data.accessToken);
+            else dispatch(removeUser());
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
 
     let router;
     
-    if(user.logged)
+    if(isFetching)
+        router = createBrowserRouter([
+            {
+                path: "*",
+                element: <LoadingPage/>, 
+            }
+        ]);
+    
+    else if(isError)
+        router = createBrowserRouter([
+            {
+                path: "*",
+                element: <>{JSON.stringify(error)}</>,
+            }
+        ]);
+
+    else if(data){
+        dispatch(newUser({ info: data }));
+
         router = createBrowserRouter([
             {
                 path: "/",
@@ -110,7 +113,9 @@ function App() {
                 element: <ProfilePage/>,
             }
         ]);
-    else
+    }   
+
+    else if (data === null) {
         router = createBrowserRouter([
 
             {
@@ -123,6 +128,18 @@ function App() {
             }
             
         ]);
+    }
+    else{
+        router = createBrowserRouter([
+            {
+                path: "*",
+                element: <LoadingPage/>,
+            }
+        ]);
+    }
+
+    
+        
     
     return(
         <RouterProvider router={router}/>

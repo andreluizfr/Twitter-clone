@@ -1,46 +1,57 @@
 import './styles.css';
-import Tweet from '../../../components/Tweet';
-import ThemedButton from '../../../components/ThemedButton';
-import Text from '../../../components/Text';
+
+import Tweet from '../Tweet';
+import ThemedButton from '../ThemedButton';
+import Text from '../Text';
 import {FaArrowLeft} from 'react-icons/fa';
+
 import {useRef, useEffect, useState} from 'react';
 
-interface PublicUser {
+interface IProfileData {
     name: string
     username: string
     bio: string
     photoURL: string
 }
 
-interface PrimaryColumnProps {
-    requestedUser: PublicUser | null
+interface MainColumnProps {
+    profile: IProfileData | null
 }
 
 
-function MainColumn({requestedUser}: PrimaryColumnProps) {
+function MainColumn({profile}: MainColumnProps) {
 
     const tweetsButton = useRef <HTMLDivElement | null>(null);
     const tweetsAndRepliesButton = useRef <HTMLDivElement| null>(null);
     const mediaButton = useRef <HTMLDivElement| null>(null);
     const likesButton = useRef <HTMLDivElement| null>(null);
 
-    const [tweetsSection, setTweetsSection] = useState(1);
+    enum section {
+        tweets = '0',
+        tweetsAndReplies = '1',
+        media = '2',
+        likes = '3'
+    }
+    const [tweetsSection, setTweetsSection] = useState <string | null> (section.tweets);
 
+
+    //setando atributos da barra de navegação com seus respectivos ids
     useEffect(()=>{
 
         tweetsButton.current?.setAttribute('active', 'true');
 
-        tweetsButton.current?.setAttribute('section', '1');
-        tweetsAndRepliesButton.current?.setAttribute('section', '2');
-        mediaButton.current?.setAttribute('section', '3');
-        likesButton.current?.setAttribute('section', '4');
+        tweetsButton.current?.setAttribute('section', section.tweets);
+        tweetsAndRepliesButton.current?.setAttribute('section', section.tweetsAndReplies);
+        mediaButton.current?.setAttribute('section', section.media);
+        likesButton.current?.setAttribute('section', section.likes);
 
-    }, []);
+    }, [section]);
 
-    function navigateToRequestedUser () {
-        window.location.href = "http://localhost:3000/"+requestedUser?.username;
+    function navigateToProfile () {
+        window.location.href = "http://localhost:3000/"+profile?.username;
     }
 
+    //deixa apenas o botão que foi clicado com atributo de active como true
     function activeButton (event: React.MouseEvent<HTMLDivElement>) {
 
         tweetsButton.current?.setAttribute('active', 'false');
@@ -51,7 +62,7 @@ function MainColumn({requestedUser}: PrimaryColumnProps) {
         const el = (event.target as HTMLDivElement);
         el.setAttribute('active', 'true');
 
-        const section = Number(el.getAttribute('section'));
+        const section = el.getAttribute('section');
         setTweetsSection(section);
 
     }
@@ -65,13 +76,13 @@ function MainColumn({requestedUser}: PrimaryColumnProps) {
                     <FaArrowLeft className='Icon-normal'/>
                 </ThemedButton>
 
-                <div className='MainColumn-header-infos' onClick={navigateToRequestedUser}>
+                <div className='MainColumn-header-infos' onClick={navigateToProfile}>
                     <Text 
                         fontWeigth='medium'
                         fontSize='medium'
                         fontColor='black'
                     > 
-                        {requestedUser?.name}
+                        {profile?.name}
                     </Text>
                     <Text 
                         fontWeigth='normal'
@@ -99,14 +110,14 @@ function MainColumn({requestedUser}: PrimaryColumnProps) {
                                 fontSize='normal'
                                 fontColor='black'
                             > 
-                                {requestedUser?.name}
+                                {profile?.name}
                             </Text>
                             <Text 
                                 fontWeigth='normal'
                                 fontSize='small'
                                 fontColor='gray'
                             > 
-                                {'@'+requestedUser?.username}
+                                {'@'+profile?.username}
                             </Text>
                         </div>
                         <Text
@@ -215,7 +226,29 @@ function MainColumn({requestedUser}: PrimaryColumnProps) {
                    
             </div>
 
-            <Tweet/>
+            {tweetsSection===section.tweets?
+                <>
+                    <Tweet/>
+                    <Tweet/>
+                </>
+                :
+                null
+            }
+            {tweetsSection===section.tweetsAndReplies?
+                <></>
+                :
+                null
+            }
+            {tweetsSection===section.media?
+                <></>
+                :
+                null
+            }
+            {tweetsSection===section.likes?
+                <></>
+                :
+                null
+            }
 
         </div>
             

@@ -1,6 +1,6 @@
 import './styles.css';
 import Banner from '../../components/Banner';
-import PrimaryColumn from './PrimaryColumn';
+import PrimaryColumn from '../../components/HomePrimaryColumn';
 import SidebarColumn from '../../components/SidebarColumn';
 
 import { useMediaQuery } from 'react-responsive';
