@@ -1,25 +1,14 @@
 # Twitter-clone
-Recriando Twitter para aprender Redux com React e Sass
+
+## Descrição
+Recriando o Frontend Twitter para aprender Redux com React e Sass, também comecei a usar React Query pela primeira vez.
+Tentei deixar o design igual, então está tudo muito bem responsivo igual ao site do twitter.
+No Backend usei Express.js com JWT para autenticação, Nodemailer para envios de e-mail para o usuário, usei banco de dados em memória Redis pela primeira vez. Usei o banco de dados Postgres com auxílio do TypeORM. Tentei aplicar o Clean architecture. Usei Repository pattern e facade pattern em alguns momentos.
 
 
+## Imagens
 
-Compilaçao do sass
-
-cd web-app
-
-sass --watch src/sass/styles.sass:src/css/styles.css
-
-
-
-
-
-
-Back-end
-
--Clean architecture ( External interfaces -> that access routes -> that access controller -> that access use-case classes -> that access entities and repositories through a repositories interface )
--Repository pattern (criação de repositórios que permitem a troca do banco de dados utilizado sem afetar o sistema como um todo, diminui acoplamento entre as classes, facilita criação de testes unitários e retira código duplicado que fere o princípio DRY).
-
-
+## Como rodar
 É preciso criar uma pasta chamada 'env' na raiz do server contendo development.env que contenha as seguintes propriedas:
 PORT=
 HOST=
