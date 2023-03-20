@@ -9,11 +9,15 @@ No Backend usei Express.js com JWT para autenticação, Nodemailer para envios d
 ## Imagens
 
 ## Como rodar
-É preciso criar uma pasta chamada 'env' na raiz do server contendo development.env que contenha as seguintes propriedas:
-PORT=
-HOST=
-JWT_SECRET=
-JWT_EXP=
-EMAIL_USER=
-EMAIL_PASS=
+
+Obs: Se você não está no Linux, vai precisar de uma máquina virtual para o rodar o Redis.
+
+Obs2:É preciso criar uma pasta chamada 'env' na raiz do server contendo development.env que contenha as seguintes propriedas:
+
+- PORT=
+- HOST=
+- JWT_SECRET=
+- JWT_EXP=
+- EMAIL_USER=
+- EMAIL_PASS=
 
